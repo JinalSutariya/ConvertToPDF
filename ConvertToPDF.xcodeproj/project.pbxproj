@@ -17,9 +17,6 @@
 		2152FC5A2B5F772300CBAC32 /* InternalStoragePhotosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC592B5F772300CBAC32 /* InternalStoragePhotosUITestsLaunchTests.swift */; };
 		2152FC672B5F787D00CBAC32 /* ImageCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC662B5F787D00CBAC32 /* ImageCountCell.swift */; };
 		2152FC6A2B5F7D3900CBAC32 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC692B5F7D3900CBAC32 /* HomePage.swift */; };
-		2152FC792B5F9A2B00CBAC32 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2152FC762B5F9A2B00CBAC32 /* Poppins-Regular.ttf */; };
-		2152FC7A2B5F9A2B00CBAC32 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2152FC772B5F9A2B00CBAC32 /* Poppins-Medium.ttf */; };
-		2152FC7B2B5F9A2B00CBAC32 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2152FC782B5F9A2B00CBAC32 /* Poppins-Bold.ttf */; };
 		2152FC7D2B5F9BB200CBAC32 /* SelectFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC7C2B5F9BB200CBAC32 /* SelectFolder.swift */; };
 		2152FC812B5F9C5400CBAC32 /* SelectFolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC802B5F9C5400CBAC32 /* SelectFolderViewCell.swift */; };
 		21914B9E2B5FB8DE00DA93A2 /* SelectImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914B9D2B5FB8DE00DA93A2 /* SelectImageViewCell.swift */; };
@@ -28,6 +25,9 @@
 		21914BA62B5FD42100DA93A2 /* CustomVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914BA52B5FD42100DA93A2 /* CustomVisualEffectView.swift */; };
 		21914BA72B5FD71100DA93A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2152FC3F2B5F772200CBAC32 /* Assets.xcassets */; };
 		21914BA92B5FE2F000DA93A2 /* ConvertingToPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914BA82B5FE2F000DA93A2 /* ConvertingToPDF.swift */; };
+		2197BCFE2B60DFD7001E9727 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2197BCFB2B60DFD7001E9727 /* Poppins-Medium.ttf */; };
+		2197BCFF2B60DFD7001E9727 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2197BCFC2B60DFD7001E9727 /* Poppins-Regular.ttf */; };
+		2197BD002B60DFD7001E9727 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2197BCFD2B60DFD7001E9727 /* Poppins-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2152FC332B5F772000CBAC32 /* InternalStoragePhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternalStoragePhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2152FC332B5F772000CBAC32 /* ConvertToPDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertToPDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2152FC362B5F772000CBAC32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2152FC382B5F772000CBAC32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2152FC3A2B5F772000CBAC32 /* ImageCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCount.swift; sourceTree = "<group>"; };
@@ -56,16 +56,13 @@
 		2152FC3F2B5F772200CBAC32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2152FC422B5F772200CBAC32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2152FC442B5F772200CBAC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2152FC492B5F772300CBAC32 /* InternalStoragePhotosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InternalStoragePhotosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2152FC492B5F772300CBAC32 /* ConvertToPDFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvertToPDFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2152FC4D2B5F772300CBAC32 /* InternalStoragePhotosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalStoragePhotosTests.swift; sourceTree = "<group>"; };
-		2152FC532B5F772300CBAC32 /* InternalStoragePhotosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InternalStoragePhotosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2152FC532B5F772300CBAC32 /* ConvertToPDFUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvertToPDFUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2152FC572B5F772300CBAC32 /* InternalStoragePhotosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalStoragePhotosUITests.swift; sourceTree = "<group>"; };
 		2152FC592B5F772300CBAC32 /* InternalStoragePhotosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalStoragePhotosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2152FC662B5F787D00CBAC32 /* ImageCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCountCell.swift; sourceTree = "<group>"; };
 		2152FC692B5F7D3900CBAC32 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
-		2152FC762B5F9A2B00CBAC32 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../Font/Font/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		2152FC772B5F9A2B00CBAC32 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../Font/Font/Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		2152FC782B5F9A2B00CBAC32 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../Font/Font/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		2152FC7C2B5F9BB200CBAC32 /* SelectFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolder.swift; sourceTree = "<group>"; };
 		2152FC802B5F9C5400CBAC32 /* SelectFolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderViewCell.swift; sourceTree = "<group>"; };
 		21914B9D2B5FB8DE00DA93A2 /* SelectImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewCell.swift; sourceTree = "<group>"; };
@@ -73,6 +70,9 @@
 		21914BA32B5FD0F400DA93A2 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		21914BA52B5FD42100DA93A2 /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
 		21914BA82B5FE2F000DA93A2 /* ConvertingToPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertingToPDF.swift; sourceTree = "<group>"; };
+		2197BCFB2B60DFD7001E9727 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../Font/Font/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		2197BCFC2B60DFD7001E9727 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../Font/Font/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		2197BCFD2B60DFD7001E9727 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../Font/Font/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +103,9 @@
 		2152FC2A2B5F772000CBAC32 = {
 			isa = PBXGroup;
 			children = (
-				2152FC352B5F772000CBAC32 /* InternalStoragePhotos */,
-				2152FC4C2B5F772300CBAC32 /* InternalStoragePhotosTests */,
-				2152FC562B5F772300CBAC32 /* InternalStoragePhotosUITests */,
+				2152FC352B5F772000CBAC32 /* ConvertToPDF */,
+				2152FC4C2B5F772300CBAC32 /* ConvertToPDFTests */,
+				2152FC562B5F772300CBAC32 /* ConvertToPDFUITests */,
 				2152FC342B5F772000CBAC32 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,14 +113,14 @@
 		2152FC342B5F772000CBAC32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2152FC332B5F772000CBAC32 /* InternalStoragePhotos.app */,
-				2152FC492B5F772300CBAC32 /* InternalStoragePhotosTests.xctest */,
-				2152FC532B5F772300CBAC32 /* InternalStoragePhotosUITests.xctest */,
+				2152FC332B5F772000CBAC32 /* ConvertToPDF.app */,
+				2152FC492B5F772300CBAC32 /* ConvertToPDFTests.xctest */,
+				2152FC532B5F772300CBAC32 /* ConvertToPDFUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2152FC352B5F772000CBAC32 /* InternalStoragePhotos */ = {
+		2152FC352B5F772000CBAC32 /* ConvertToPDF */ = {
 			isa = PBXGroup;
 			children = (
 				2152FC7F2B5F9C0200CBAC32 /* TableViewCell */,
@@ -134,24 +134,24 @@
 				2152FC412B5F772200CBAC32 /* LaunchScreen.storyboard */,
 				2152FC442B5F772200CBAC32 /* Info.plist */,
 			);
-			path = InternalStoragePhotos;
+			path = ConvertToPDF;
 			sourceTree = "<group>";
 		};
-		2152FC4C2B5F772300CBAC32 /* InternalStoragePhotosTests */ = {
+		2152FC4C2B5F772300CBAC32 /* ConvertToPDFTests */ = {
 			isa = PBXGroup;
 			children = (
 				2152FC4D2B5F772300CBAC32 /* InternalStoragePhotosTests.swift */,
 			);
-			path = InternalStoragePhotosTests;
+			path = ConvertToPDFTests;
 			sourceTree = "<group>";
 		};
-		2152FC562B5F772300CBAC32 /* InternalStoragePhotosUITests */ = {
+		2152FC562B5F772300CBAC32 /* ConvertToPDFUITests */ = {
 			isa = PBXGroup;
 			children = (
 				2152FC572B5F772300CBAC32 /* InternalStoragePhotosUITests.swift */,
 				2152FC592B5F772300CBAC32 /* InternalStoragePhotosUITestsLaunchTests.swift */,
 			);
-			path = InternalStoragePhotosUITests;
+			path = ConvertToPDFUITests;
 			sourceTree = "<group>";
 		};
 		2152FC682B5F7D1800CBAC32 /* Controller */ = {
@@ -169,9 +169,9 @@
 		2152FC6F2B5F99C900CBAC32 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				2152FC782B5F9A2B00CBAC32 /* Poppins-Bold.ttf */,
-				2152FC772B5F9A2B00CBAC32 /* Poppins-Medium.ttf */,
-				2152FC762B5F9A2B00CBAC32 /* Poppins-Regular.ttf */,
+				2197BCFD2B60DFD7001E9727 /* Poppins-Bold.ttf */,
+				2197BCFB2B60DFD7001E9727 /* Poppins-Medium.ttf */,
+				2197BCFC2B60DFD7001E9727 /* Poppins-Regular.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -198,9 +198,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2152FC322B5F772000CBAC32 /* InternalStoragePhotos */ = {
+		2152FC322B5F772000CBAC32 /* ConvertToPDF */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2152FC5D2B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "InternalStoragePhotos" */;
+			buildConfigurationList = 2152FC5D2B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDF" */;
 			buildPhases = (
 				2152FC2F2B5F772000CBAC32 /* Sources */,
 				2152FC302B5F772000CBAC32 /* Frameworks */,
@@ -210,14 +210,14 @@
 			);
 			dependencies = (
 			);
-			name = InternalStoragePhotos;
+			name = ConvertToPDF;
 			productName = InternalStoragePhotos;
-			productReference = 2152FC332B5F772000CBAC32 /* InternalStoragePhotos.app */;
+			productReference = 2152FC332B5F772000CBAC32 /* ConvertToPDF.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2152FC482B5F772300CBAC32 /* InternalStoragePhotosTests */ = {
+		2152FC482B5F772300CBAC32 /* ConvertToPDFTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2152FC602B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "InternalStoragePhotosTests" */;
+			buildConfigurationList = 2152FC602B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDFTests" */;
 			buildPhases = (
 				2152FC452B5F772300CBAC32 /* Sources */,
 				2152FC462B5F772300CBAC32 /* Frameworks */,
@@ -228,14 +228,14 @@
 			dependencies = (
 				2152FC4B2B5F772300CBAC32 /* PBXTargetDependency */,
 			);
-			name = InternalStoragePhotosTests;
+			name = ConvertToPDFTests;
 			productName = InternalStoragePhotosTests;
-			productReference = 2152FC492B5F772300CBAC32 /* InternalStoragePhotosTests.xctest */;
+			productReference = 2152FC492B5F772300CBAC32 /* ConvertToPDFTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2152FC522B5F772300CBAC32 /* InternalStoragePhotosUITests */ = {
+		2152FC522B5F772300CBAC32 /* ConvertToPDFUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2152FC632B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "InternalStoragePhotosUITests" */;
+			buildConfigurationList = 2152FC632B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDFUITests" */;
 			buildPhases = (
 				2152FC4F2B5F772300CBAC32 /* Sources */,
 				2152FC502B5F772300CBAC32 /* Frameworks */,
@@ -246,9 +246,9 @@
 			dependencies = (
 				2152FC552B5F772300CBAC32 /* PBXTargetDependency */,
 			);
-			name = InternalStoragePhotosUITests;
+			name = ConvertToPDFUITests;
 			productName = InternalStoragePhotosUITests;
-			productReference = 2152FC532B5F772300CBAC32 /* InternalStoragePhotosUITests.xctest */;
+			productReference = 2152FC532B5F772300CBAC32 /* ConvertToPDFUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -274,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2152FC2E2B5F772000CBAC32 /* Build configuration list for PBXProject "InternalStoragePhotos" */;
+			buildConfigurationList = 2152FC2E2B5F772000CBAC32 /* Build configuration list for PBXProject "ConvertToPDF" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -287,9 +287,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2152FC322B5F772000CBAC32 /* InternalStoragePhotos */,
-				2152FC482B5F772300CBAC32 /* InternalStoragePhotosTests */,
-				2152FC522B5F772300CBAC32 /* InternalStoragePhotosUITests */,
+				2152FC322B5F772000CBAC32 /* ConvertToPDF */,
+				2152FC482B5F772300CBAC32 /* ConvertToPDFTests */,
+				2152FC522B5F772300CBAC32 /* ConvertToPDFUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -300,11 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FC432B5F772200CBAC32 /* LaunchScreen.storyboard in Resources */,
-				2152FC7B2B5F9A2B00CBAC32 /* Poppins-Bold.ttf in Resources */,
+				2197BD002B60DFD7001E9727 /* Poppins-Bold.ttf in Resources */,
+				2197BCFE2B60DFD7001E9727 /* Poppins-Medium.ttf in Resources */,
 				2152FC3E2B5F772000CBAC32 /* Main.storyboard in Resources */,
-				2152FC792B5F9A2B00CBAC32 /* Poppins-Regular.ttf in Resources */,
 				21914BA72B5FD71100DA93A2 /* Assets.xcassets in Resources */,
-				2152FC7A2B5F9A2B00CBAC32 /* Poppins-Medium.ttf in Resources */,
+				2197BCFF2B60DFD7001E9727 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,12 +366,12 @@
 /* Begin PBXTargetDependency section */
 		2152FC4B2B5F772300CBAC32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2152FC322B5F772000CBAC32 /* InternalStoragePhotos */;
+			target = 2152FC322B5F772000CBAC32 /* ConvertToPDF */;
 			targetProxy = 2152FC4A2B5F772300CBAC32 /* PBXContainerItemProxy */;
 		};
 		2152FC552B5F772300CBAC32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2152FC322B5F772000CBAC32 /* InternalStoragePhotos */;
+			target = 2152FC322B5F772000CBAC32 /* ConvertToPDF */;
 			targetProxy = 2152FC542B5F772300CBAC32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -524,18 +524,21 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV827BG4DQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = InternalStoragePhotos/Info.plist;
+				INFOPLIST_FILE = ConvertToPDF/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ConvertToPDF;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "use Photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.InternalStoragePhotos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.ConvertToPDF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -552,18 +555,21 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV827BG4DQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = InternalStoragePhotos/Info.plist;
+				INFOPLIST_FILE = ConvertToPDF/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ConvertToPDF;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "use Photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.InternalStoragePhotos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.ConvertToPDF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -582,12 +588,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.InternalStoragePhotosTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.ConvertToPDFTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InternalStoragePhotos.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/InternalStoragePhotos";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConvertToPDF.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ConvertToPDF";
 			};
 			name = Debug;
 		};
@@ -602,12 +608,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.InternalStoragePhotosTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.ConvertToPDFTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InternalStoragePhotos.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/InternalStoragePhotos";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConvertToPDF.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ConvertToPDF";
 			};
 			name = Release;
 		};
@@ -620,7 +626,7 @@
 				DEVELOPMENT_TEAM = BV827BG4DQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.InternalStoragePhotosUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.ConvertToPDFUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -638,7 +644,7 @@
 				DEVELOPMENT_TEAM = BV827BG4DQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.InternalStoragePhotosUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PhotoApp.ios.-ConvertToPDF-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -650,7 +656,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2152FC2E2B5F772000CBAC32 /* Build configuration list for PBXProject "InternalStoragePhotos" */ = {
+		2152FC2E2B5F772000CBAC32 /* Build configuration list for PBXProject "ConvertToPDF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2152FC5B2B5F772300CBAC32 /* Debug */,
@@ -659,7 +665,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2152FC5D2B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "InternalStoragePhotos" */ = {
+		2152FC5D2B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2152FC5E2B5F772300CBAC32 /* Debug */,
@@ -668,7 +674,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2152FC602B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "InternalStoragePhotosTests" */ = {
+		2152FC602B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDFTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2152FC612B5F772300CBAC32 /* Debug */,
@@ -677,7 +683,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2152FC632B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "InternalStoragePhotosUITests" */ = {
+		2152FC632B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDFUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2152FC642B5F772300CBAC32 /* Debug */,
