@@ -8,16 +8,13 @@
 import UIKit
 import Photos
 import MobileCoreServices
-import PDFKit // Add this import statement
 
-protocol SaveImagesBottomSheetDelegate: AnyObject {
-    func createPDF(from images: [PHAsset])
-}
 protocol SelectImagesDelegate: AnyObject {
     func didSelectAssets(_ assets: [PHAsset])
+
 }
-class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SaveImagesBottomSheetDelegate {
-    
+     
+class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     
     
@@ -67,70 +64,21 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     @IBAction func convertPdfTap(_ sender: Any) {
         
-        guard !selectedAssets.isEmpty else {
-            // Handle case where no images are selected
-            return
-        }
-
         let infoViewController = storyboard?.instantiateViewController(identifier: "bottomSheet") as! SaveImagesBottomSheet
-        infoViewController.modalPresentationStyle = .overCurrentContext
-        infoViewController.modalTransitionStyle = .crossDissolve
-        infoViewController.selectedImages = selectedAssets
-        infoViewController.delegate = self // Set the delegate to handle PDF creation
-        present(infoViewController, animated: true)
-
+           infoViewController.modalPresentationStyle = .overCurrentContext
+           infoViewController.modalTransitionStyle = .crossDissolve
+           
+           // Pass selected assets to the SaveImagesBottomSheet
+           infoViewController.selectedAssets = selectedAssets
+           
+           present(infoViewController, animated: true)
         
+      
     }
     @IBAction func galleryBtnTap(_ sender: Any) {
         showImagePicker()
 
         }
-    func createPDF(from images: [PHAsset]) {
-        // Ensure there are selected images
-        guard !images.isEmpty else {
-            // Handle the case where no images are selected
-            return
-        }
-
-        // Create a PDF document
-        let pdfDocument = PDFDocument()
-
-        // Create a dispatch group to wait for all download tasks to complete
-        let downloadGroup = DispatchGroup()
-
-        // Loop through selected images and add them to the PDF
-        for asset in images {
-            downloadGroup.enter()
-
-            PHImageManager.default().requestImageData(for: asset, options: nil) { (imageData, _, _, _) in
-                defer {
-                    downloadGroup.leave()
-                }
-
-                guard let data = imageData, let image = UIImage(data: data) else {
-                    return
-                }
-
-                // Create a PDF page
-                let pdfPage = PDFPage(image: image)
-
-                // Add the PDF page to the document
-                pdfDocument.insert(pdfPage!, at: pdfDocument.pageCount)
-            }
-        }
-
-        // Notify when all download tasks are complete
-        downloadGroup.notify(queue: DispatchQueue.main) {
-            // Save the PDF to a file in the documents directory
-            let pdfFileName = "SelectedImages.pdf"
-            let pdfURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(pdfFileName)
-            pdfDocument.write(to: pdfURL)
-
-            // Optionally, you can use the pdfURL for further processing (e.g., sharing, displaying)
-            print("PDF downloaded and saved at: \(pdfURL)")
-        }
-    }
-
     private func showImagePicker() {
            let imagePickerController = UIImagePickerController()
            imagePickerController.delegate = self

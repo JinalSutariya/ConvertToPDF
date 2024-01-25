@@ -49,7 +49,6 @@ class Menu:  UIViewController, UIViewControllerTransitioningDelegate {
     }
     @IBAction func deleteTap(_ sender: Any) {
         grabberView.isHidden = true
-        
         self.dismiss(animated: true)
         
     }

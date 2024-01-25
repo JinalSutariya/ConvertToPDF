@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QuickLook
 
 class GenratedPDF: UIViewController, GeneratedPDFTableViewCellDelegate {
 
@@ -15,10 +16,12 @@ class GenratedPDF: UIViewController, GeneratedPDFTableViewCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var isSortingViewVisible = false
+    var generatedPDFURL: URL?
 
     override func viewDidLoad() {
             super.viewDidLoad()
         
+        print("genratedPDF URl:----",generatedPDFURL)
         SortingView.isHidden = true
         SortingView.layer.cornerRadius = 15
         SortingView.layer.shadowColor = UIColor.gray.cgColor
@@ -47,19 +50,26 @@ class GenratedPDF: UIViewController, GeneratedPDFTableViewCellDelegate {
 }
 extension GenratedPDF: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GeneratedPDFTableViewCell
             cell.selectionStyle = .none
         cell.delegate = self
-
+        if let pdfURL = generatedPDFURL {
+                    let pdfName = pdfURL.lastPathComponent
+                    cell.titleLbl.text = pdfName
+                }
             return cell
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        if let pdfURL = generatedPDFURL {
+            let previewController = QLPreviewController()
+            previewController.dataSource = self
+            present(previewController, animated: true, completion: nil)
+        }
     }
     func didTapMoreButton(inCell cell: GeneratedPDFTableViewCell) {
            let infoViewController = storyboard?.instantiateViewController(identifier: "menu") as! Menu
@@ -73,4 +83,13 @@ extension GenratedPDF: UITableViewDelegate, UITableViewDataSource{
             nilDataImage.isHidden = hasData
         }
   
+}
+extension GenratedPDF: QLPreviewControllerDataSource {
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return generatedPDFURL != nil ? 1 : 0
+    }
+
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        return generatedPDFURL! as QLPreviewItem
+    }
 }

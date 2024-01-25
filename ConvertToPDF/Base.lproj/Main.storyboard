@@ -211,6 +211,7 @@
                         <outlet property="galleryBtn" destination="lqb-tL-h7Y" id="lNm-GA-bMY"/>
                         <outlet property="galleryView" destination="A56-yi-LP0" id="dTs-3b-lQK"/>
                         <outlet property="modeChange" destination="J9X-dN-T6s" id="Val-Wv-xbY"/>
+                        <outlet property="pdfBtn" destination="ZIj-nE-fit" id="lUv-JQ-Mhx"/>
                         <outlet property="pdfView" destination="t1e-ym-SG5" id="ROa-w1-o3k"/>
                     </connections>
                 </viewController>
@@ -1017,7 +1018,7 @@
                     <connections>
                         <outlet property="bottomView" destination="yDd-o7-nUL" id="urB-pO-9hV"/>
                         <outlet property="compressImgSlider" destination="vMy-oB-BTE" id="cDj-lu-sWG"/>
-                        <outlet property="fileName" destination="7Lx-1t-mOH" id="hsc-oR-fO2"/>
+                        <outlet property="fileNameTxt" destination="7Lx-1t-mOH" id="yRW-Jc-Vhh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30E-yN-Ple" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

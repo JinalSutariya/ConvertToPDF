@@ -43,7 +43,6 @@ class SelectFolder: UIViewController, UITableViewDataSource, UITableViewDelegate
            let folder = imageFolders[indexPath.row]
            cell.titleLbl.text = folder.title
            cell.subTitleLbl.text = "Number of Images: \(folder.assets.count)"
-
            return cell
        }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

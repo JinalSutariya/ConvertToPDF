@@ -7,18 +7,15 @@
 
 import UIKit
 import Foundation
-import Photos
+
 class SaveImagesBottomSheet: UIViewController {
    
  
     @IBOutlet weak var bottomView: UIView!
     
-    @IBOutlet weak var fileName: UITextField!
+    @IBOutlet weak var fileNameTxt: UITextField!
     @IBOutlet weak var compressImgSlider: CustomSlider!
-    var selectedImages: [PHAsset] = []
-    weak var delegate: SaveImagesBottomSheetDelegate?
-
-    // Add a delegate to handle PDF creation
+    var selectedAssets: [PHAsset] = []
 
     lazy var lightBackgroundView: UIView = {
         let view = UIView()
@@ -43,18 +40,15 @@ class SaveImagesBottomSheet: UIViewController {
        
         self.dismiss(animated: true)
 
-        // Check if the delegate is set and selected images are not empty
-        if let delegate = delegate, !selectedImages.isEmpty {
-            delegate.createPDF(from: selectedImages)
-        }
-
-        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "convertToPDF") {
-                   self.dismiss(animated: true, completion: nil)
-            controller.modalPresentationStyle = .fullScreen
-            controller.modalTransitionStyle = .crossDissolve
-                   self.presentingViewController?.present(controller, animated: true, completion: nil)
-            
-               }
+                // Pass selected assets to ConvertingToPDF
+                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "convertToPDF") as? ConvertingToPDF {
+                    controller.modalPresentationStyle = .fullScreen
+                    controller.modalTransitionStyle = .crossDissolve
+                    controller.selectedAssets = selectedAssets
+                    controller.fileName = fileNameTxt.text
+                    self.presentingViewController?.present(controller, animated: true, completion: nil)
+                }
+       
     }
     
     func setupView() {
@@ -64,7 +58,8 @@ class SaveImagesBottomSheet: UIViewController {
     }
    
 }
-
+import UIKit
+import Photos
 
 class CustomSlider: UISlider {
     

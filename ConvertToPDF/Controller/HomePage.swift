@@ -15,6 +15,7 @@ class HomePage: UIViewController {
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var cameraView: UIView!
     
+    @IBOutlet weak var pdfBtn: UIButton!
     @IBOutlet weak var modeChange: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class HomePage: UIViewController {
         let thirdTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         galleryView.addGestureRecognizer(thirdTapGesture)
         galleryBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
-        
+        pdfBtn.addTarget(self, action: #selector(genratedPDf), for: .touchUpInside)
 
 
     }
@@ -40,7 +41,7 @@ class HomePage: UIViewController {
     @objc func viewTapped(_ sender: UITapGestureRecognizer) {
         guard let selectedView = sender.view else { return }
        navigateToselectFolder()
-        
+        genratedPDf()
     }
        
 
@@ -48,12 +49,17 @@ class HomePage: UIViewController {
     @objc func saveImage() {
         navigateToselectFolder()
     }
-    
+    @objc func genratedPDf() {
+        genratedPDFFolder()
+    }
     func navigateToselectFolder(){
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "selectFolder") as! SelectFolder
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
+    func genratedPDFFolder(){
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "genratedPDF") as! GenratedPDF
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
    
 }
-
 
