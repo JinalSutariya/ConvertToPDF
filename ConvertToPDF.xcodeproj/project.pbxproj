@@ -21,13 +21,19 @@
 		2152FC812B5F9C5400CBAC32 /* SelectFolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC802B5F9C5400CBAC32 /* SelectFolderViewCell.swift */; };
 		21914B9E2B5FB8DE00DA93A2 /* SelectImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914B9D2B5FB8DE00DA93A2 /* SelectImageViewCell.swift */; };
 		21914BA02B5FB93A00DA93A2 /* SelectImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914B9F2B5FB93A00DA93A2 /* SelectImages.swift */; };
-		21914BA42B5FD0F400DA93A2 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914BA32B5FD0F400DA93A2 /* BottomSheet.swift */; };
+		21914BA42B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914BA32B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift */; };
 		21914BA62B5FD42100DA93A2 /* CustomVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914BA52B5FD42100DA93A2 /* CustomVisualEffectView.swift */; };
 		21914BA72B5FD71100DA93A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2152FC3F2B5F772200CBAC32 /* Assets.xcassets */; };
 		21914BA92B5FE2F000DA93A2 /* ConvertingToPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914BA82B5FE2F000DA93A2 /* ConvertingToPDF.swift */; };
 		2197BCFE2B60DFD7001E9727 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2197BCFB2B60DFD7001E9727 /* Poppins-Medium.ttf */; };
 		2197BCFF2B60DFD7001E9727 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2197BCFC2B60DFD7001E9727 /* Poppins-Regular.ttf */; };
 		2197BD002B60DFD7001E9727 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2197BCFD2B60DFD7001E9727 /* Poppins-Bold.ttf */; };
+		2197BD022B60FE15001E9727 /* ConvertedSuccessfully.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD012B60FE15001E9727 /* ConvertedSuccessfully.swift */; };
+		2197BD042B60FE26001E9727 /* GenratedPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD032B60FE26001E9727 /* GenratedPDF.swift */; };
+		2197BD092B610742001E9727 /* GeneratedPDFTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD082B610742001E9727 /* GeneratedPDFTableViewCell.swift */; };
+		2197BD0C2B610CC4001E9727 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD0B2B610CC4001E9727 /* Menu.swift */; };
+		2197BD0E2B61237F001E9727 /* DarkModeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD0D2B61237F001E9727 /* DarkModeColor.swift */; };
+		2197BD102B61238B001E9727 /* LightColorFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD0F2B61238B001E9727 /* LightColorFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,12 +73,18 @@
 		2152FC802B5F9C5400CBAC32 /* SelectFolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderViewCell.swift; sourceTree = "<group>"; };
 		21914B9D2B5FB8DE00DA93A2 /* SelectImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewCell.swift; sourceTree = "<group>"; };
 		21914B9F2B5FB93A00DA93A2 /* SelectImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImages.swift; sourceTree = "<group>"; };
-		21914BA32B5FD0F400DA93A2 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		21914BA32B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImagesBottomSheet.swift; sourceTree = "<group>"; };
 		21914BA52B5FD42100DA93A2 /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
 		21914BA82B5FE2F000DA93A2 /* ConvertingToPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertingToPDF.swift; sourceTree = "<group>"; };
 		2197BCFB2B60DFD7001E9727 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../Font/Font/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		2197BCFC2B60DFD7001E9727 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../Font/Font/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		2197BCFD2B60DFD7001E9727 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../Font/Font/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		2197BD012B60FE15001E9727 /* ConvertedSuccessfully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertedSuccessfully.swift; sourceTree = "<group>"; };
+		2197BD032B60FE26001E9727 /* GenratedPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenratedPDF.swift; sourceTree = "<group>"; };
+		2197BD082B610742001E9727 /* GeneratedPDFTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPDFTableViewCell.swift; sourceTree = "<group>"; };
+		2197BD0B2B610CC4001E9727 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		2197BD0D2B61237F001E9727 /* DarkModeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeColor.swift; sourceTree = "<group>"; };
+		2197BD0F2B61238B001E9727 /* LightColorFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightColorFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +135,8 @@
 		2152FC352B5F772000CBAC32 /* ConvertToPDF */ = {
 			isa = PBXGroup;
 			children = (
+				2197BD0A2B61074C001E9727 /* View */,
+				2197BD052B60FE3D001E9727 /* Bottomsheet */,
 				2152FC7F2B5F9C0200CBAC32 /* TableViewCell */,
 				2152FC7E2B5F9BF800CBAC32 /* CollectionViewCell */,
 				2152FC6F2B5F99C900CBAC32 /* Font */,
@@ -162,6 +176,8 @@
 				2152FC3A2B5F772000CBAC32 /* ImageCount.swift */,
 				21914B9F2B5FB93A00DA93A2 /* SelectImages.swift */,
 				21914BA82B5FE2F000DA93A2 /* ConvertingToPDF.swift */,
+				2197BD012B60FE15001E9727 /* ConvertedSuccessfully.swift */,
+				2197BD032B60FE26001E9727 /* GenratedPDF.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,10 +205,28 @@
 			isa = PBXGroup;
 			children = (
 				2152FC802B5F9C5400CBAC32 /* SelectFolderViewCell.swift */,
-				21914BA32B5FD0F400DA93A2 /* BottomSheet.swift */,
-				21914BA52B5FD42100DA93A2 /* CustomVisualEffectView.swift */,
+				2197BD082B610742001E9727 /* GeneratedPDFTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		2197BD052B60FE3D001E9727 /* Bottomsheet */ = {
+			isa = PBXGroup;
+			children = (
+				21914BA32B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift */,
+				2197BD0B2B610CC4001E9727 /* Menu.swift */,
+			);
+			path = Bottomsheet;
+			sourceTree = "<group>";
+		};
+		2197BD0A2B61074C001E9727 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21914BA52B5FD42100DA93A2 /* CustomVisualEffectView.swift */,
+				2197BD0D2B61237F001E9727 /* DarkModeColor.swift */,
+				2197BD0F2B61238B001E9727 /* LightColorFile.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,17 +363,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2197BD102B61238B001E9727 /* LightColorFile.swift in Sources */,
+				2197BD022B60FE15001E9727 /* ConvertedSuccessfully.swift in Sources */,
 				2152FC6A2B5F7D3900CBAC32 /* HomePage.swift in Sources */,
 				21914BA02B5FB93A00DA93A2 /* SelectImages.swift in Sources */,
 				2152FC3B2B5F772000CBAC32 /* ImageCount.swift in Sources */,
+				2197BD042B60FE26001E9727 /* GenratedPDF.swift in Sources */,
 				21914B9E2B5FB8DE00DA93A2 /* SelectImageViewCell.swift in Sources */,
+				2197BD092B610742001E9727 /* GeneratedPDFTableViewCell.swift in Sources */,
 				2152FC372B5F772000CBAC32 /* AppDelegate.swift in Sources */,
 				2152FC672B5F787D00CBAC32 /* ImageCountCell.swift in Sources */,
 				21914BA62B5FD42100DA93A2 /* CustomVisualEffectView.swift in Sources */,
-				21914BA42B5FD0F400DA93A2 /* BottomSheet.swift in Sources */,
+				2197BD0C2B610CC4001E9727 /* Menu.swift in Sources */,
+				21914BA42B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift in Sources */,
 				21914BA92B5FE2F000DA93A2 /* ConvertingToPDF.swift in Sources */,
 				2152FC392B5F772000CBAC32 /* SceneDelegate.swift in Sources */,
 				2152FC812B5F9C5400CBAC32 /* SelectFolderViewCell.swift in Sources */,
+				2197BD0E2B61237F001E9727 /* DarkModeColor.swift in Sources */,
 				2152FC7D2B5F9BB200CBAC32 /* SelectFolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -505,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

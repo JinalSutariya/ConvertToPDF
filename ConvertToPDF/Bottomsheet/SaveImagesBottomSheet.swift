@@ -7,14 +7,19 @@
 
 import UIKit
 import Foundation
-
-class BottomSheet: UIViewController {
+import Photos
+class SaveImagesBottomSheet: UIViewController {
    
  
     @IBOutlet weak var bottomView: UIView!
     
+    @IBOutlet weak var fileName: UITextField!
     @IBOutlet weak var compressImgSlider: CustomSlider!
-    
+    var selectedImages: [PHAsset] = []
+    weak var delegate: SaveImagesBottomSheetDelegate?
+
+    // Add a delegate to handle PDF creation
+
     lazy var lightBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7) // Set your desired transparency level here
@@ -37,7 +42,12 @@ class BottomSheet: UIViewController {
     @IBAction func okTap(_ sender: Any) {
        
         self.dismiss(animated: true)
-    
+
+        // Check if the delegate is set and selected images are not empty
+        if let delegate = delegate, !selectedImages.isEmpty {
+            delegate.createPDF(from: selectedImages)
+        }
+
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: "convertToPDF") {
                    self.dismiss(animated: true, completion: nil)
             controller.modalPresentationStyle = .fullScreen
@@ -54,7 +64,7 @@ class BottomSheet: UIViewController {
     }
    
 }
-import UIKit
+
 
 class CustomSlider: UISlider {
     
@@ -93,7 +103,7 @@ class CustomSlider: UISlider {
     }
     
     private func updateThumbImage() {
-        let thumbImage = UIImage.circle(diameter: max(thumbSize.width, thumbSize.height), color: (thumbTintColor ?? UIColor(named: "MainColor"))!)
+        let thumbImage = UIImage.circle(diameter: max(thumbSize.width, thumbSize.height), color: (thumbTintColor ?? UIColor(named: "C_MainColor"))!)
         setThumbImage(thumbImage, for: .normal)
     }
     
