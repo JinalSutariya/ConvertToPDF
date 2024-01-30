@@ -57,12 +57,14 @@ class ImageCount: UIViewController, UICollectionViewDataSource, UICollectionView
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCountCell
            cell.selectImgView.layer.cornerRadius = 16
+           cell.imageView.layer.cornerRadius = 16
            let asset = selectedFolder.assets[indexPath.item]
                   
-                  // Use PHImageManager to load the image for the asset
                   let imageManager = PHImageManager.default()
                   imageManager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil) { (image, _) in
+                      
                       cell.imageView.image = image
+                      
                   }
            if selectedIndexPaths.contains(indexPath) {
                    // Show selectImgView and hide ticImgView

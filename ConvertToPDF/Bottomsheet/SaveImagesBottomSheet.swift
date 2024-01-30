@@ -8,19 +8,20 @@
 import UIKit
 import Foundation
 
-class SaveImagesBottomSheet: UIViewController {
+class SaveImagesBottomSheet: UIViewController, UITextFieldDelegate {
    
  
     @IBOutlet weak var bottomView: UIView!
     
+    @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var fileNameTxt: UITextField!
     @IBOutlet weak var compressImgSlider: CustomSlider!
     var selectedAssets: [PHAsset] = []
 
     lazy var lightBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.7) // Set your desired transparency level here
         
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.7) // Set your desired transparency level here
         view.frame = self.view.bounds
         return view
     }()
@@ -29,7 +30,14 @@ class SaveImagesBottomSheet: UIViewController {
         super.viewDidLoad()
         bottomView.layer.cornerRadius = 15
         setupView()
+        fileNameTxt.delegate = self
+        passTxt.delegate = self
+
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           textField.resignFirstResponder()
+           return true
+       }
     @IBAction func donebtnTap(_ sender: Any) {
         
         self.dismiss(animated: true)

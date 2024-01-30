@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class HomePage: UIViewController {
+class HomePage: UIViewController{
 
     @IBOutlet weak var galleryBtn: UIButton!
     @IBOutlet weak var pdfView: UIView!
@@ -15,6 +16,7 @@ class HomePage: UIViewController {
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var cameraView: UIView!
     
+    @IBOutlet weak var cameraBtn: UIButton!
     @IBOutlet weak var pdfBtn: UIButton!
     @IBOutlet weak var modeChange: UIButton!
     override func viewDidLoad() {
@@ -30,7 +32,6 @@ class HomePage: UIViewController {
         galleryBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
         pdfBtn.addTarget(self, action: #selector(genratedPDf), for: .touchUpInside)
 
-
     }
    
     @IBAction func themTap(_ sender: Any) {
@@ -42,6 +43,7 @@ class HomePage: UIViewController {
         guard let selectedView = sender.view else { return }
        navigateToselectFolder()
         genratedPDf()
+
     }
        
 
@@ -52,6 +54,7 @@ class HomePage: UIViewController {
     @objc func genratedPDf() {
         genratedPDFFolder()
     }
+    
     func navigateToselectFolder(){
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "selectFolder") as! SelectFolder
         self.navigationController?.pushViewController(secondViewController, animated: true)

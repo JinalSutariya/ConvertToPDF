@@ -206,6 +206,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0Aw-oQ-CyH"/>
                     <connections>
+                        <outlet property="cameraBtn" destination="Isk-g2-JFj" id="y9A-jF-KJ8"/>
                         <outlet property="cameraView" destination="nbf-O9-ZNy" id="M5k-Pc-hIY"/>
                         <outlet property="fileView" destination="IcW-7O-iUC" id="rU9-ey-N0D"/>
                         <outlet property="galleryBtn" destination="lqb-tL-h7Y" id="lNm-GA-bMY"/>
@@ -289,7 +290,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhL-sx-559">
                                                     <rect key="frame" x="0.0" y="10" width="353" height="72"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="P1" translatesAutoresizingMaskIntoConstraints="NO" id="oPT-aP-c4s">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="P1" translatesAutoresizingMaskIntoConstraints="NO" id="oPT-aP-c4s">
                                                             <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="72" id="KuZ-S0-ybO"/>
@@ -298,13 +299,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0Iv-e7-kh8">
                                                             <rect key="frame" x="88" y="13.666666666666671" width="230" height="45"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Camera" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smS-WZ-BvQ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smS-WZ-BvQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="24"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1768 Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOW-L6-OAw">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1768 Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOW-L6-OAw">
                                                                     <rect key="frame" x="0.0" y="28" width="69.666666666666671" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                     <color key="textColor" name="FColor_1"/>
@@ -484,7 +485,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="P1" translatesAutoresizingMaskIntoConstraints="NO" id="as4-Ej-7Yj">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="P1" translatesAutoresizingMaskIntoConstraints="NO" id="as4-Ej-7Yj">
                                                     <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="102" id="eDU-Ev-6ZP"/>
@@ -1019,6 +1020,7 @@
                         <outlet property="bottomView" destination="yDd-o7-nUL" id="urB-pO-9hV"/>
                         <outlet property="compressImgSlider" destination="vMy-oB-BTE" id="cDj-lu-sWG"/>
                         <outlet property="fileNameTxt" destination="7Lx-1t-mOH" id="yRW-Jc-Vhh"/>
+                        <outlet property="passTxt" destination="rDR-5a-un4" id="mE1-42-95e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30E-yN-Ple" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1048,8 +1050,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Group 138"/>
                                                 <connections>
-                                                    <action selector="closeTap:" destination="XQH-R1-vqX" eventType="touchUpInside" id="N3g-ET-5hz"/>
-                                                    <action selector="closeTap:" destination="J2Q-4U-fmy" eventType="touchUpInside" id="Y17-WI-sRR"/>
+                                                    <action selector="closeTap:" destination="J2Q-4U-fmy" eventType="touchUpInside" id="AvC-gd-seL"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Converting To PDF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3A-ji-cCh">
@@ -1083,7 +1084,7 @@
                                 <rect key="frame" x="130.66666666666666" y="201" width="131.99999999999997" height="132"/>
                                 <color key="backgroundColor" name="C_MainColor"/>
                             </view>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" trackImage="Group 138" translatesAutoresizingMaskIntoConstraints="NO" id="Vgz-a6-ipG">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" trackImage="Group 138" translatesAutoresizingMaskIntoConstraints="NO" id="Vgz-a6-ipG">
                                 <rect key="frame" x="20" y="401.33333333333331" width="353" height="4"/>
                                 <color key="progressTintColor" name="C_MainColor"/>
                                 <color key="trackTintColor" name="C_FontColor"/>
@@ -1094,29 +1095,27 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pa-Qx-v2m">
-                                <rect key="frame" x="159" y="461" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="tapNext:" destination="J2Q-4U-fmy" eventType="touchUpInside" id="YfH-o7-3OO"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEO-DO-Cqx">
+                                <rect key="frame" x="0.0" y="416" width="393" height="18.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rf0-ZO-AuE"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="UEO-DO-Cqx" firstAttribute="leading" secondItem="Rf0-ZO-AuE" secondAttribute="leading" id="2z0-2H-PqP"/>
+                            <constraint firstItem="UEO-DO-Cqx" firstAttribute="top" secondItem="Vgz-a6-ipG" secondAttribute="bottom" constant="10.666666666666686" id="ERh-if-h4X"/>
                             <constraint firstItem="GS1-hb-fab" firstAttribute="top" secondItem="QXN-sn-kor" secondAttribute="bottom" constant="27" id="IQz-3P-ZdF"/>
                             <constraint firstItem="QXN-sn-kor" firstAttribute="height" secondItem="cP2-pl-UaZ" secondAttribute="height" multiplier="0.15493" id="KX4-7F-N3I"/>
-                            <constraint firstItem="3Pa-Qx-v2m" firstAttribute="top" secondItem="Vgz-a6-ipG" secondAttribute="bottom" constant="55.666666666666686" id="Lrl-by-N8j"/>
                             <constraint firstItem="QXN-sn-kor" firstAttribute="width" secondItem="cP2-pl-UaZ" secondAttribute="width" multiplier="0.335878" id="MPT-Yy-AbT"/>
+                            <constraint firstItem="Rf0-ZO-AuE" firstAttribute="trailing" secondItem="UEO-DO-Cqx" secondAttribute="trailing" id="MqT-Km-Qh1"/>
                             <constraint firstItem="QXN-sn-kor" firstAttribute="top" secondItem="1PX-lw-pCj" secondAttribute="bottom" constant="90" id="TNG-hX-iWj"/>
                             <constraint firstItem="Rf0-ZO-AuE" firstAttribute="trailing" secondItem="1PX-lw-pCj" secondAttribute="trailing" id="UAU-ft-3CR"/>
                             <constraint firstItem="QXN-sn-kor" firstAttribute="centerX" secondItem="Rf0-ZO-AuE" secondAttribute="centerX" id="XU1-oD-4YP"/>
                             <constraint firstItem="Vgz-a6-ipG" firstAttribute="top" secondItem="GS1-hb-fab" secondAttribute="bottom" constant="20.333333333333314" id="d5x-DD-4JS"/>
-                            <constraint firstItem="3Pa-Qx-v2m" firstAttribute="leading" secondItem="Rf0-ZO-AuE" secondAttribute="leading" constant="159" id="fS2-VK-wzt"/>
                             <constraint firstItem="GS1-hb-fab" firstAttribute="leading" secondItem="Rf0-ZO-AuE" secondAttribute="leading" id="ioz-ZN-JeX"/>
-                            <constraint firstItem="Rf0-ZO-AuE" firstAttribute="trailing" secondItem="3Pa-Qx-v2m" secondAttribute="trailing" constant="159" id="j0U-3K-9gl"/>
                             <constraint firstItem="Vgz-a6-ipG" firstAttribute="leading" secondItem="Rf0-ZO-AuE" secondAttribute="leading" constant="20" id="q2H-Qb-Ydu"/>
                             <constraint firstItem="1PX-lw-pCj" firstAttribute="leading" secondItem="cP2-pl-UaZ" secondAttribute="leading" id="tpQ-7w-fyz"/>
                             <constraint firstItem="Rf0-ZO-AuE" firstAttribute="trailing" secondItem="Vgz-a6-ipG" secondAttribute="trailing" constant="20" id="vdO-CV-V1G"/>
@@ -1126,6 +1125,7 @@
                     </view>
                     <connections>
                         <outlet property="circleView" destination="QXN-sn-kor" id="5kQ-VW-UPV"/>
+                        <outlet property="progressCount" destination="UEO-DO-Cqx" id="njN-Y3-uqA"/>
                         <outlet property="progressView" destination="Vgz-a6-ipG" id="f8a-eg-vqb"/>
                     </connections>
                 </viewController>
@@ -1157,9 +1157,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Group 138"/>
                                                 <connections>
-                                                    <action selector="closeTap:" destination="0eF-SS-xGH" eventType="touchUpInside" id="NBu-MA-B6c"/>
-                                                    <action selector="closeTap:" destination="XQH-R1-vqX" eventType="touchUpInside" id="PxG-i1-exa"/>
-                                                    <action selector="closeTap:" destination="SLR-D7-dCW" eventType="touchUpInside" id="yuL-4F-tLN"/>
+                                                    <action selector="closeTap:" destination="SLR-D7-dCW" eventType="touchUpInside" id="oPa-S2-otj"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Converted Successfully" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kg1-ra-VBh">
@@ -1290,11 +1288,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pdfName" destination="2ik-vg-Rjf" id="C5E-ej-B2r"/>
                         <outlet property="pdfView" destination="xLD-pA-dv5" id="TVO-Kh-TcM"/>
+                        <outlet property="sizeAndDateLbl" destination="nJd-vZ-jJD" id="cOd-Kf-rOD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0OY-2L-g4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="0eF-SS-xGH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5403.8167938931292" y="-35.211267605633807"/>
         </scene>
@@ -1324,9 +1323,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system"/>
                                                 <connections>
-                                                    <action selector="backTap:" destination="hWZ-0F-y5Q" eventType="touchUpInside" id="MLw-m2-lLz"/>
-                                                    <action selector="closeTap:" destination="XQH-R1-vqX" eventType="touchUpInside" id="c5r-Re-bgX"/>
-                                                    <action selector="closeTap:" destination="kfm-vb-eLz" eventType="touchUpInside" id="eoF-1s-vBA"/>
+                                                    <action selector="backTap:" destination="hWZ-0F-y5Q" eventType="touchUpInside" id="PrF-6R-Sy6"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Genrated PDF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0F-rn-WpX">

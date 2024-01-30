@@ -1,0 +1,6 @@
+framework module Pods_ConvertToPDF_ConvertToPDFUITests {
+  umbrella header "Pods-ConvertToPDF-ConvertToPDFUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

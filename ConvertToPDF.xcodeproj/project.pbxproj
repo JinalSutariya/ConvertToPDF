@@ -34,6 +34,9 @@
 		2197BD0E2B61237F001E9727 /* DarkModeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD0D2B61237F001E9727 /* DarkModeColor.swift */; };
 		2197BD102B61238B001E9727 /* LightColorFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD0F2B61238B001E9727 /* LightColorFile.swift */; };
 		21CEB77D2B62516F00C7E619 /* ConvertedSucessfully.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEB77C2B62516F00C7E619 /* ConvertedSucessfully.swift */; };
+		2C29A1B8677B9E8D2E45BD75 /* Pods_ConvertToPDFTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045CB7C5A22EFAAD702B699B /* Pods_ConvertToPDFTests.framework */; };
+		3A69803E53FEEC3D49A0F969 /* Pods_ConvertToPDF_ConvertToPDFUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770762D039070CA46B325B2C /* Pods_ConvertToPDF_ConvertToPDFUITests.framework */; };
+		668CD73C820C4E49FD807FFE /* Pods_ConvertToPDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B28D54EF5C4A1AE0109CA5 /* Pods_ConvertToPDF.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +54,31 @@
 			remoteGlobalIDString = 2152FC322B5F772000CBAC32;
 			remoteInfo = InternalStoragePhotos;
 		};
+		219A56922B675F9B00CAB5B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A3301C08F64AC3EC3F87C7DA8F13963;
+			remoteInfo = "Pods-ConvertToPDF";
+		};
+		219A56942B675F9B00CAB5B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5C2D35530853C7E4744C6D1D917E742B;
+			remoteInfo = "Pods-ConvertToPDF-ConvertToPDFUITests";
+		};
+		219A56962B675F9B00CAB5B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1171D9AAFAA516938F7C3B73C12079E1;
+			remoteInfo = "Pods-ConvertToPDFTests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045CB7C5A22EFAAD702B699B /* Pods_ConvertToPDFTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvertToPDFTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2152FC332B5F772000CBAC32 /* ConvertToPDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertToPDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2152FC362B5F772000CBAC32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2152FC382B5F772000CBAC32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +109,17 @@
 		2197BD0B2B610CC4001E9727 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2197BD0D2B61237F001E9727 /* DarkModeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeColor.swift; sourceTree = "<group>"; };
 		2197BD0F2B61238B001E9727 /* LightColorFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightColorFile.swift; sourceTree = "<group>"; };
+		219A56892B675F7A00CAB5B8 /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
+		219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		21CEB77C2B62516F00C7E619 /* ConvertedSucessfully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertedSucessfully.swift; sourceTree = "<group>"; };
+		2260891F8467BE60D15CB7BE /* Pods-ConvertToPDFTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDFTests.release.xcconfig"; path = "Target Support Files/Pods-ConvertToPDFTests/Pods-ConvertToPDFTests.release.xcconfig"; sourceTree = "<group>"; };
+		4226F7CC765CEC2910BFEC9B /* Pods-ConvertToPDFTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDFTests.debug.xcconfig"; path = "Target Support Files/Pods-ConvertToPDFTests/Pods-ConvertToPDFTests.debug.xcconfig"; sourceTree = "<group>"; };
+		659168272F8913B5FD9AB1A9 /* Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig"; path = "Target Support Files/Pods-ConvertToPDF-ConvertToPDFUITests/Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6C8AC4CCA02DC1D63CDAF334 /* Pods-ConvertToPDF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDF.debug.xcconfig"; path = "Target Support Files/Pods-ConvertToPDF/Pods-ConvertToPDF.debug.xcconfig"; sourceTree = "<group>"; };
+		770762D039070CA46B325B2C /* Pods_ConvertToPDF_ConvertToPDFUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvertToPDF_ConvertToPDFUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAC8D8402242A48DE9142132 /* Pods-ConvertToPDF-ConvertToPDFUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDF-ConvertToPDFUITests.debug.xcconfig"; path = "Target Support Files/Pods-ConvertToPDF-ConvertToPDFUITests/Pods-ConvertToPDF-ConvertToPDFUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D4B28D54EF5C4A1AE0109CA5 /* Pods_ConvertToPDF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvertToPDF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB83EAD416D1336EF6B494D /* Pods-ConvertToPDF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDF.release.xcconfig"; path = "Target Support Files/Pods-ConvertToPDF/Pods-ConvertToPDF.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668CD73C820C4E49FD807FFE /* Pods_ConvertToPDF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C29A1B8677B9E8D2E45BD75 /* Pods_ConvertToPDFTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A69803E53FEEC3D49A0F969 /* Pods_ConvertToPDF_ConvertToPDFUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +157,9 @@
 				2152FC4C2B5F772300CBAC32 /* ConvertToPDFTests */,
 				2152FC562B5F772300CBAC32 /* ConvertToPDFUITests */,
 				2152FC342B5F772000CBAC32 /* Products */,
+				A1ED87945680B676A8A84333 /* Pods */,
+				219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */,
+				BA8FCDB959F75C1F54CB8589 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +270,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		219A568B2B675F9A00CAB5B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				219A56932B675F9B00CAB5B8 /* Pods-ConvertToPDF */,
+				219A56952B675F9B00CAB5B8 /* Pods-ConvertToPDF-ConvertToPDFUITests */,
+				219A56972B675F9B00CAB5B8 /* Pods-ConvertToPDFTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1ED87945680B676A8A84333 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C8AC4CCA02DC1D63CDAF334 /* Pods-ConvertToPDF.debug.xcconfig */,
+				EDB83EAD416D1336EF6B494D /* Pods-ConvertToPDF.release.xcconfig */,
+				CAC8D8402242A48DE9142132 /* Pods-ConvertToPDF-ConvertToPDFUITests.debug.xcconfig */,
+				659168272F8913B5FD9AB1A9 /* Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig */,
+				4226F7CC765CEC2910BFEC9B /* Pods-ConvertToPDFTests.debug.xcconfig */,
+				2260891F8467BE60D15CB7BE /* Pods-ConvertToPDFTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA8FCDB959F75C1F54CB8589 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				219A56892B675F7A00CAB5B8 /* Pods */,
+				D4B28D54EF5C4A1AE0109CA5 /* Pods_ConvertToPDF.framework */,
+				770762D039070CA46B325B2C /* Pods_ConvertToPDF_ConvertToPDFUITests.framework */,
+				045CB7C5A22EFAAD702B699B /* Pods_ConvertToPDFTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +311,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2152FC5D2B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDF" */;
 			buildPhases = (
+				CE58CE32957FBF26A37A8DE9 /* [CP] Check Pods Manifest.lock */,
 				2152FC2F2B5F772000CBAC32 /* Sources */,
 				2152FC302B5F772000CBAC32 /* Frameworks */,
 				2152FC312B5F772000CBAC32 /* Resources */,
@@ -245,6 +321,8 @@
 			dependencies = (
 			);
 			name = ConvertToPDF;
+			packageProductDependencies = (
+			);
 			productName = InternalStoragePhotos;
 			productReference = 2152FC332B5F772000CBAC32 /* ConvertToPDF.app */;
 			productType = "com.apple.product-type.application";
@@ -253,6 +331,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2152FC602B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDFTests" */;
 			buildPhases = (
+				6183D940F4AF01ABE635BB1A /* [CP] Check Pods Manifest.lock */,
 				2152FC452B5F772300CBAC32 /* Sources */,
 				2152FC462B5F772300CBAC32 /* Frameworks */,
 				2152FC472B5F772300CBAC32 /* Resources */,
@@ -271,6 +350,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2152FC632B5F772300CBAC32 /* Build configuration list for PBXNativeTarget "ConvertToPDFUITests" */;
 			buildPhases = (
+				2D13B17AF729CC404C7639DD /* [CP] Check Pods Manifest.lock */,
 				2152FC4F2B5F772300CBAC32 /* Sources */,
 				2152FC502B5F772300CBAC32 /* Frameworks */,
 				2152FC512B5F772300CBAC32 /* Resources */,
@@ -317,8 +397,16 @@
 				Base,
 			);
 			mainGroup = 2152FC2A2B5F772000CBAC32;
+			packageReferences = (
+			);
 			productRefGroup = 2152FC342B5F772000CBAC32 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 219A568B2B675F9A00CAB5B8 /* Products */;
+					ProjectRef = 219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2152FC322B5F772000CBAC32 /* ConvertToPDF */,
@@ -327,6 +415,33 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		219A56932B675F9B00CAB5B8 /* Pods-ConvertToPDF */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			name = "Pods-ConvertToPDF";
+			path = Pods_ConvertToPDF.framework;
+			remoteRef = 219A56922B675F9B00CAB5B8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		219A56952B675F9B00CAB5B8 /* Pods-ConvertToPDF-ConvertToPDFUITests */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			name = "Pods-ConvertToPDF-ConvertToPDFUITests";
+			path = Pods_ConvertToPDF_ConvertToPDFUITests.framework;
+			remoteRef = 219A56942B675F9B00CAB5B8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		219A56972B675F9B00CAB5B8 /* Pods-ConvertToPDFTests */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			name = "Pods-ConvertToPDFTests";
+			path = Pods_ConvertToPDFTests.framework;
+			remoteRef = 219A56962B675F9B00CAB5B8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2152FC312B5F772000CBAC32 /* Resources */ = {
@@ -357,6 +472,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D13B17AF729CC404C7639DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConvertToPDF-ConvertToPDFUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6183D940F4AF01ABE635BB1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConvertToPDFTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE58CE32957FBF26A37A8DE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConvertToPDF-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2152FC2F2B5F772000CBAC32 /* Sources */ = {
@@ -557,6 +741,7 @@
 		};
 		2152FC5E2B5F772300CBAC32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C8AC4CCA02DC1D63CDAF334 /* Pods-ConvertToPDF.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -588,6 +773,7 @@
 		};
 		2152FC5F2B5F772300CBAC32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDB83EAD416D1336EF6B494D /* Pods-ConvertToPDF.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -619,6 +805,7 @@
 		};
 		2152FC612B5F772300CBAC32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4226F7CC765CEC2910BFEC9B /* Pods-ConvertToPDFTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -639,6 +826,7 @@
 		};
 		2152FC622B5F772300CBAC32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2260891F8467BE60D15CB7BE /* Pods-ConvertToPDFTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -659,6 +847,7 @@
 		};
 		2152FC642B5F772300CBAC32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAC8D8402242A48DE9142132 /* Pods-ConvertToPDF-ConvertToPDFUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -677,6 +866,7 @@
 		};
 		2152FC652B5F772300CBAC32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 659168272F8913B5FD9AB1A9 /* Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

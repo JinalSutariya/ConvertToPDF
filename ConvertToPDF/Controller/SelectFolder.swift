@@ -43,8 +43,27 @@ class SelectFolder: UIViewController, UITableViewDataSource, UITableViewDelegate
            let folder = imageFolders[indexPath.row]
            cell.titleLbl.text = folder.title
            cell.subTitleLbl.text = "Number of Images: \(folder.assets.count)"
-           return cell
-       }
+           if let firstAsset = folder.assets.first {
+                     loadThumbnail(for: firstAsset, into: cell.imgView)
+                 }
+           cell.imgView.layer.cornerRadius = 15
+
+                 return cell
+             }
+
+             func loadThumbnail(for asset: PHAsset, into imageView: UIImageView) {
+                 let requestOptions = PHImageRequestOptions()
+                 requestOptions.isSynchronous = false
+                 requestOptions.deliveryMode = .highQualityFormat
+
+                 let imageManager = PHImageManager.default()
+                 imageManager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: requestOptions) { (image, _) in
+                     DispatchQueue.main.async {
+                         imageView.image = image
+                     }
+                 }
+             }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedFolder = imageFolders[indexPath.row]
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "imageCount") as! ImageCount
@@ -56,33 +75,38 @@ class SelectFolder: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
       
     func getAllAlbums() {
-            let fetchOptions = PHFetchOptions()
+        let fetchOptions = PHFetchOptions()
 
-            // Fetch all user-created albums
-            let userAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: fetchOptions)
+        // Fetch all user-created albums
+        let userAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: fetchOptions)
 
-            // Fetch all smart albums
-            let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: fetchOptions)
+        // Fetch all smart albums
+        let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: fetchOptions)
 
-            // Merge user-created albums and smart albums
-            let allAlbums = [userAlbums, smartAlbums]
+        // Merge user-created albums and smart albums
+        let allAlbums = [userAlbums, smartAlbums]
 
-            for albums in allAlbums {
-                albums.enumerateObjects { (album, _, _) in
-                    // Fetch assets in the current album
-                    let assets = PHAsset.fetchAssets(in: album, options: nil)
+        for albums in allAlbums {
+            albums.enumerateObjects { (album, _, _) in
+                // Fetch only images in the current album
+                let assets = PHAsset.fetchAssets(in: album, options: fetchOptions)
 
-                    // Check if the album contains images
-                    if assets.count > 0 {
-                        // Create an ImageFolder object and add it to the imageFolders array
-                        let imageFolder = ImageFolder(title: album.localizedTitle ?? "Unknown", assets: Array(_immutableCocoaArray: assets))
-                        self.imageFolders.append(imageFolder)
-                    }
+                // Filter out videos
+                let imageAssets = assets.objects(at: IndexSet(0..<assets.count)).filter { $0.mediaType == .image }
+
+                // Check if the album contains images
+                if imageAssets.count > 0 {
+                    // Create an ImageFolder object and add it to the imageFolders array
+                    let imageFolder = ImageFolder(title: album.localizedTitle ?? "Unknown", assets: Array(imageAssets))
+                    self.imageFolders.append(imageFolder)
                 }
             }
-            
-            // Reload the table view data after fetching the albums
-            tableView.reloadData()
         }
+
+        // Reload the table view data after fetching the albums
+        tableView.reloadData()
+    }
+
+
 
 }
