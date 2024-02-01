@@ -19,14 +19,16 @@ class HomePage: UIViewController{
     @IBOutlet weak var cameraBtn: UIButton!
     @IBOutlet weak var pdfBtn: UIButton!
     @IBOutlet weak var modeChange: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         pdfView.layer.cornerRadius = 10
         fileView.layer.cornerRadius =  10
         galleryView.layer.cornerRadius = 10
         cameraView.layer.cornerRadius = 10
+        
         let thirdTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         galleryView.addGestureRecognizer(thirdTapGesture)
         galleryBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)

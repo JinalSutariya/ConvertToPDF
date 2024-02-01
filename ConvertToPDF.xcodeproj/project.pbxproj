@@ -19,6 +19,7 @@
 		2152FC6A2B5F7D3900CBAC32 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC692B5F7D3900CBAC32 /* HomePage.swift */; };
 		2152FC7D2B5F9BB200CBAC32 /* SelectFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC7C2B5F9BB200CBAC32 /* SelectFolder.swift */; };
 		2152FC812B5F9C5400CBAC32 /* SelectFolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FC802B5F9C5400CBAC32 /* SelectFolderViewCell.swift */; };
+		2185C49A2B6A2544004254F3 /* PVSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2185C4992B6A2544004254F3 /* PVSwitch.swift */; };
 		21914B9E2B5FB8DE00DA93A2 /* SelectImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914B9D2B5FB8DE00DA93A2 /* SelectImageViewCell.swift */; };
 		21914BA02B5FB93A00DA93A2 /* SelectImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914B9F2B5FB93A00DA93A2 /* SelectImages.swift */; };
 		21914BA42B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21914BA32B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift */; };
@@ -53,6 +54,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2152FC322B5F772000CBAC32;
 			remoteInfo = InternalStoragePhotos;
+		};
+		2185C49F2B6A2544004254F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE996352DEA8D179E2F6F72C21D80CDE;
+			remoteInfo = PVSwitch;
 		};
 		219A56922B675F9B00CAB5B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -96,6 +104,7 @@
 		2152FC692B5F7D3900CBAC32 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		2152FC7C2B5F9BB200CBAC32 /* SelectFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolder.swift; sourceTree = "<group>"; };
 		2152FC802B5F9C5400CBAC32 /* SelectFolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderViewCell.swift; sourceTree = "<group>"; };
+		2185C4992B6A2544004254F3 /* PVSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVSwitch.swift; sourceTree = "<group>"; };
 		21914B9D2B5FB8DE00DA93A2 /* SelectImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewCell.swift; sourceTree = "<group>"; };
 		21914B9F2B5FB93A00DA93A2 /* SelectImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImages.swift; sourceTree = "<group>"; };
 		21914BA32B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImagesBottomSheet.swift; sourceTree = "<group>"; };
@@ -266,6 +275,7 @@
 				21914BA52B5FD42100DA93A2 /* CustomVisualEffectView.swift */,
 				2197BD0D2B61237F001E9727 /* DarkModeColor.swift */,
 				2197BD0F2B61238B001E9727 /* LightColorFile.swift */,
+				2185C4992B6A2544004254F3 /* PVSwitch.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,6 +286,7 @@
 				219A56932B675F9B00CAB5B8 /* Pods-ConvertToPDF */,
 				219A56952B675F9B00CAB5B8 /* Pods-ConvertToPDF-ConvertToPDFUITests */,
 				219A56972B675F9B00CAB5B8 /* Pods-ConvertToPDFTests */,
+				2185C4A02B6A2544004254F3 /* PVSwitch */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -321,8 +332,6 @@
 			dependencies = (
 			);
 			name = ConvertToPDF;
-			packageProductDependencies = (
-			);
 			productName = InternalStoragePhotos;
 			productReference = 2152FC332B5F772000CBAC32 /* ConvertToPDF.app */;
 			productType = "com.apple.product-type.application";
@@ -397,8 +406,6 @@
 				Base,
 			);
 			mainGroup = 2152FC2A2B5F772000CBAC32;
-			packageReferences = (
-			);
 			productRefGroup = 2152FC342B5F772000CBAC32 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -417,6 +424,14 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2185C4A02B6A2544004254F3 /* PVSwitch */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			name = PVSwitch;
+			path = PVSwitch.framework;
+			remoteRef = 2185C49F2B6A2544004254F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		219A56932B675F9B00CAB5B8 /* Pods-ConvertToPDF */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -560,6 +575,7 @@
 				21914BA62B5FD42100DA93A2 /* CustomVisualEffectView.swift in Sources */,
 				2197BD0C2B610CC4001E9727 /* Menu.swift in Sources */,
 				21914BA42B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift in Sources */,
+				2185C49A2B6A2544004254F3 /* PVSwitch.swift in Sources */,
 				21914BA92B5FE2F000DA93A2 /* ConvertingToPDF.swift in Sources */,
 				2152FC392B5F772000CBAC32 /* SceneDelegate.swift in Sources */,
 				2152FC812B5F9C5400CBAC32 /* SelectFolderViewCell.swift in Sources */,
@@ -672,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -729,7 +745,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -751,12 +767,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConvertToPDF/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ConvertToPDF;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "use Photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -783,12 +801,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConvertToPDF/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ConvertToPDF;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "use Photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -813,7 +833,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV827BG4DQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.ConvertToPDFTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -834,7 +854,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV827BG4DQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoApp.ios.ConvertToPDFTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

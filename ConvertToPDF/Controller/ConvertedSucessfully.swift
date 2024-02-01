@@ -20,7 +20,6 @@ class ConvertedSuccessfully: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let unwrappedFileName = fileName {
             pdfName.text = "\(unwrappedFileName).pdf"
         }
@@ -43,26 +42,25 @@ class ConvertedSuccessfully: UIViewController {
     
     @IBAction func downloadTap(_ sender: Any) {
         guard let pdfURL = generatedPDFURL else {
-                print("No PDF URL available.")
-                return
-            }
-
-            downloadPDF(url: pdfURL) { result in
-                switch result {
-                case .success(let downloadedURL):
-                    DispatchQueue.main.async {
-                        let vc = self.storyboard?.instantiateViewController(identifier: "genratedPDF") as! GenratedPDF
-                        vc.generatedPDFURL = downloadedURL
-                        vc.modalPresentationStyle = .overCurrentContext
-                        vc.modalTransitionStyle = .coverVertical
-                        self.present(vc, animated: true)
-                    }
-                case .failure(let error):
-                    print("Error downloading PDF: \(error.localizedDescription)")
+            print("No PDF URL available.")
+            return
+        }
+        downloadPDF(url: pdfURL) { result in
+            switch result {
+            case .success(let downloadedURL):
+                DispatchQueue.main.async {
+                    let vc = self.storyboard?.instantiateViewController(identifier: "genratedPDF") as! GenratedPDF
+                    vc.generatedPDFURL = downloadedURL
+                    vc.modalPresentationStyle = .overCurrentContext
+                    vc.modalTransitionStyle = .coverVertical
+                    self.present(vc, animated: true)
                 }
-                
+            case .failure(let error):
+                print("Error downloading PDF: \(error.localizedDescription)")
             }
+        }
     }
+    
     func downloadPDF(url: URL, completion: @escaping (Result<URL, Error>) -> Void) {
             // Perform the download task
             URLSession.shared.downloadTask(with: url) { [self] (tempURL, response, error) in
@@ -77,7 +75,6 @@ class ConvertedSuccessfully: UIViewController {
                 }
 
                 do {
-                    
                     
                     let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
 

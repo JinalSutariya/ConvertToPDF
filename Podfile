@@ -6,7 +6,7 @@ target 'ConvertToPDF' do
   use_frameworks!
 
   # Pods for ConvertToPDF
-pod 'PDFKitSwift'
+
 
 
   target 'ConvertToPDFTests' do

@@ -8,6 +8,7 @@
 import UIKit
 import Photos
 import MobileCoreServices
+import AVFoundation
 
 protocol SelectImagesDelegate: AnyObject {
     func didSelectAssets(_ assets: [PHAsset])
@@ -28,19 +29,32 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     var isOptionViewVisible = false
     var selectedAssets: [PHAsset] = []
     weak var delegate: SelectImagesDelegate?
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         optionStackView.isHidden = true
         
-        
+
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout();
         
     }
-    
+    @IBAction func cameraBtnTap(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePickerController = UIImagePickerController()
+                imagePickerController.delegate = self
+                imagePickerController.sourceType = .camera
+                imagePickerController.mediaTypes = [String(kUTTypeImage)]
+                present(imagePickerController, animated: true, completion: nil)
+            } else {
+                // Handle the case where the camera is not available (e.g., simulator)
+                print("Camera not available.")
+            }
+        
+        
+    }
     @IBAction func backTap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         
@@ -73,12 +87,13 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         present(infoViewController, animated: true)
         
-        
     }
+    
     @IBAction func galleryBtnTap(_ sender: Any) {
         showImagePicker()
         
     }
+  
     private func showImagePicker() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
