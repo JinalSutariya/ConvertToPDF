@@ -29,13 +29,13 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     var isOptionViewVisible = false
     var selectedAssets: [PHAsset] = []
     weak var delegate: SelectImagesDelegate?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         optionStackView.isHidden = true
         
-
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout();
@@ -43,15 +43,15 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     @IBAction func cameraBtnTap(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                let imagePickerController = UIImagePickerController()
-                imagePickerController.delegate = self
-                imagePickerController.sourceType = .camera
-                imagePickerController.mediaTypes = [String(kUTTypeImage)]
-                present(imagePickerController, animated: true, completion: nil)
-            } else {
-                // Handle the case where the camera is not available (e.g., simulator)
-                print("Camera not available.")
-            }
+               let imagePickerController = UIImagePickerController()
+               imagePickerController.delegate = self
+               imagePickerController.sourceType = .camera
+               imagePickerController.mediaTypes = [String(kUTTypeImage)]
+               present(imagePickerController, animated: true, completion: nil)
+           } else {
+               // Handle the case where the camera is not available (e.g., simulator)
+               print("Camera not available.")
+           }
         
         
     }
@@ -71,7 +71,7 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         UIView.animate(withDuration: 0.3) {
             self.optionStackView.alpha = self.isOptionViewVisible ? 2.0 : 0.0
-            
+
             self.optionStackView.isHidden = !self.isOptionViewVisible
         }
         
@@ -88,12 +88,15 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
         present(infoViewController, animated: true)
         
     }
+    @IBAction func fileTap(_ sender: Any) {
+        showImagePicker()
+    }
     
     @IBAction func galleryBtnTap(_ sender: Any) {
-        showImagePicker()
+      
         
     }
-  
+    
     private func showImagePicker() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -104,22 +107,36 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     // Delegate method to handle image selection
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage,
-           let phAsset = info[.phAsset] as? PHAsset {
-            
-            // Add the selected PHAsset to your array
-            selectedAssets.append(phAsset)
-            
-            // Notify the delegate about the updated selection
-            delegate?.didSelectAssets(selectedAssets)
-            
-            // Reload the collectionView to display the new selected image
-            collectionView.reloadData()
+        if let selectedImage = info[.originalImage] as? UIImage {
+            // Save the image to the photo library to obtain the PHAsset
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAsset(from: selectedImage)
+            }) { (success, error) in
+                if success {
+                    // Fetch the newly created PHAsset
+                    let fetchOptions = PHFetchOptions()
+                    fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+                    let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                    
+                    if let phAsset = fetchResult.firstObject as? PHAsset {
+                        // Add the selected PHAsset to your array
+                        self.selectedAssets.append(phAsset)
+                        
+                        // Reload the collectionView to display the new selected image
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                    }
+                } else {
+                    print("Error saving image to photo library: \(error?.localizedDescription ?? "Unknown error")")
+                }
+            }
         }
         
         // Dismiss the image picker controller
         picker.dismiss(animated: true, completion: nil)
     }
+
     
     // Delegate method to handle image picker cancellation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

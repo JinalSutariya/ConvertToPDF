@@ -55,13 +55,6 @@
 			remoteGlobalIDString = 2152FC322B5F772000CBAC32;
 			remoteInfo = InternalStoragePhotos;
 		};
-		2185C49F2B6A2544004254F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE996352DEA8D179E2F6F72C21D80CDE;
-			remoteInfo = PVSwitch;
-		};
 		219A56922B675F9B00CAB5B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */;
@@ -286,7 +279,6 @@
 				219A56932B675F9B00CAB5B8 /* Pods-ConvertToPDF */,
 				219A56952B675F9B00CAB5B8 /* Pods-ConvertToPDF-ConvertToPDFUITests */,
 				219A56972B675F9B00CAB5B8 /* Pods-ConvertToPDFTests */,
-				2185C4A02B6A2544004254F3 /* PVSwitch */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -424,14 +416,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2185C4A02B6A2544004254F3 /* PVSwitch */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = PVSwitch;
-			path = PVSwitch.framework;
-			remoteRef = 2185C49F2B6A2544004254F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		219A56932B675F9B00CAB5B8 /* Pods-ConvertToPDF */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

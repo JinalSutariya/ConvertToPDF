@@ -6,14 +6,22 @@
 //
 
 import UIKit
-
+protocol MenuDelegate: AnyObject {
+    func deletePDF(at index: Int)
+}
 class Menu:  UIViewController, UIViewControllerTransitioningDelegate {
     
+    @IBOutlet weak var renameBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var bottomView: UIView!
-    var amount = ""
     
+    var amount = ""
+    weak var delegate: MenuDelegate?
+    var selectedIndex: Int = 0
+
     lazy var lightBackgroundView: UIView = {
         let view = UIView()
+        
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7) // Set your desired transparency level here
         
         view.frame = self.view.bounds
@@ -47,15 +55,18 @@ class Menu:  UIViewController, UIViewControllerTransitioningDelegate {
     @objc func handleTapOutside() {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func renameTap(_ sender: Any) {
+    }
     @IBAction func deleteTap(_ sender: Any) {
-        grabberView.isHidden = true
-        self.dismiss(animated: true)
+        delegate?.deletePDF(at: selectedIndex)
+            grabberView.isHidden = true
+            dismiss(animated: true)
         
     }
     func setupView() {
-        
         view.addSubview(lightBackgroundView)
         view.sendSubviewToBack(lightBackgroundView)
     }
+   
 }
 

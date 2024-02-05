@@ -39,10 +39,10 @@ class GeneratedPDFTableViewCell: UITableViewCell {
             titleLbl.text = pdfInfo.title
             subTitleLbl.text = pdfInfo.subtitle
         }
+    
 }
 struct PDFInfo {
     let title: String
     let subtitle: String
     let size: String
-    // Add more properties as needed
 }

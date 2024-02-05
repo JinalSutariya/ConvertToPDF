@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import Photos
 class SaveImagesBottomSheet: UIViewController, UITextFieldDelegate {
    
  
@@ -68,8 +69,6 @@ class SaveImagesBottomSheet: UIViewController, UITextFieldDelegate {
     }
    
 }
-import UIKit
-import Photos
 
 class CustomSlider: UISlider {
     

@@ -43,7 +43,7 @@ class SelectFolder: UIViewController, UITableViewDataSource, UITableViewDelegate
            let folder = imageFolders[indexPath.row]
            cell.titleLbl.text = folder.title
            cell.subTitleLbl.text = "Number of Images: \(folder.assets.count)"
-           if let firstAsset = folder.assets.first {
+           if let firstAsset = folder.assets.last {
                      loadThumbnail(for: firstAsset, into: cell.imgView)
                  }
            cell.imgView.layer.cornerRadius = 15
@@ -75,6 +75,7 @@ class SelectFolder: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
       
     func getAllAlbums() {
+        
         let fetchOptions = PHFetchOptions()
 
         // Fetch all user-created albums
