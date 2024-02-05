@@ -29,7 +29,7 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     var isOptionViewVisible = false
     var selectedAssets: [PHAsset] = []
     weak var delegate: SelectImagesDelegate?
-    
+    var selectedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()

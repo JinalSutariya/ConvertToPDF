@@ -31,35 +31,25 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         galleryView.layer.cornerRadius = 10
         cameraView.layer.cornerRadius = 10
         
-        let thirdTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
-        galleryView.addGestureRecognizer(thirdTapGesture)
+        let galleryTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        galleryView.addGestureRecognizer(galleryTapGesture)
         galleryBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
+        
+        let pdfTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        pdfView.addGestureRecognizer(pdfTapGesture)
         pdfBtn.addTarget(self, action: #selector(genratedPDf), for: .touchUpInside)
+        
         let cameraTapGesture = UITapGestureRecognizer(target: self, action: #selector(cameraViewTapped))
         cameraView.addGestureRecognizer(cameraTapGesture)
-        cameraBtn.addGestureRecognizer(cameraTapGesture) // Assuming cameraBtn is your button for camera
-
+        cameraBtn.addGestureRecognizer(cameraTapGesture)
+        
     }
    
     @IBAction func themTap(_ sender: Any) {
      
        
     }
-    @objc func cameraViewTapped() {
-            openCamera()
-        }
-
-        func openCamera() {
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                let imagePickerController = UIImagePickerController()
-                imagePickerController.delegate = self
-                imagePickerController.sourceType = .camera
-                imagePickerController.mediaTypes = [String(kUTTypeImage)]
-                present(imagePickerController, animated: true, completion: nil)
-            } else {
-                print("Camera not available.")
-            }
-        }
+    
 
         // Delegate method to handle image selection
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -95,7 +85,21 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @objc func genratedPDf() {
         genratedPDFFolder()
     }
-    
+    @objc func cameraViewTapped() {
+            openCamera()
+        }
+
+        func openCamera() {
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePickerController = UIImagePickerController()
+                imagePickerController.delegate = self
+                imagePickerController.sourceType = .camera
+                imagePickerController.mediaTypes = [String(kUTTypeImage)]
+                present(imagePickerController, animated: true, completion: nil)
+            } else {
+                print("Camera not available.")
+            }
+        }
     func navigateToselectFolder(){
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "selectFolder") as! SelectFolder
         self.navigationController?.pushViewController(secondViewController, animated: true)
