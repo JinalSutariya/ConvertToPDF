@@ -21,11 +21,9 @@ class GeneratedPDFTableViewCell: UITableViewCell {
 
         override func awakeFromNib() {
             super.awakeFromNib()
-            // Initialization code
         }
 
         @IBAction func moreTap(_ sender: Any) {
-            // Notify the delegate when the more button is tapped
             delegate?.didTapMoreButton(inCell: self)
             
         }
@@ -33,7 +31,6 @@ class GeneratedPDFTableViewCell: UITableViewCell {
         override func setSelected(_ selected: Bool, animated: Bool) {
             super.setSelected(selected, animated: animated)
 
-            // Configure the view for the selected state
         }
     func configure(with pdfInfo: PDFInfo) {
             titleLbl.text = pdfInfo.title

@@ -25,17 +25,17 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         pdfView.layer.cornerRadius = 10
         fileView.layer.cornerRadius =  10
         galleryView.layer.cornerRadius = 10
         cameraView.layer.cornerRadius = 10
         
-        let galleryTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        let galleryTapGesture = UITapGestureRecognizer(target: self, action: #selector(saveImage))
         galleryView.addGestureRecognizer(galleryTapGesture)
         galleryBtn.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
         
-        let pdfTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        let pdfTapGesture = UITapGestureRecognizer(target: self, action: #selector(genratedPDf))
         pdfView.addGestureRecognizer(pdfTapGesture)
         pdfBtn.addTarget(self, action: #selector(genratedPDf), for: .touchUpInside)
         
@@ -43,24 +43,37 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         cameraView.addGestureRecognizer(cameraTapGesture)
         cameraBtn.addGestureRecognizer(cameraTapGesture)
         
+        let fileTapGesture = UITapGestureRecognizer(target: self, action: #selector(openGallery))
+        fileView.addGestureRecognizer(fileTapGesture)
     }
    
     @IBAction func themTap(_ sender: Any) {
-     
+      
        
     }
     
 
         // Delegate method to handle image selection
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let selectedImage = info[.originalImage] as? UIImage {
-                // Save the image to the photo library
-                UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-            }
-            
-            // Dismiss the image picker controller
-            picker.dismiss(animated: true, completion: nil)
+    @objc func openGallery() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.mediaTypes = [String(kUTTypeImage)]
+        present(imagePickerController, animated: true, completion: nil)
+    }
+
+    // Delegate method to handle image selection
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            // Save the selected image to your data model or pass it to the next screen
+            let selectedImagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "selectImages") as! SelectImages
+            selectedImagesViewController.selectedImage = selectedImage
+            self.navigationController?.pushViewController(selectedImagesViewController, animated: true)
         }
+        
+        // Dismiss the image picker controller
+        picker.dismiss(animated: true, completion: nil)
+    }
 
         // Method called after image is saved to the photo library
         @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
@@ -70,44 +83,35 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 print("Image saved successfully.")
             }
         }
-    @objc func viewTapped(_ sender: UITapGestureRecognizer) {
-        guard let selectedView = sender.view else { return }
-       navigateToselectFolder()
-        genratedPDf()
-
-    }
+ 
        
 
     
     @objc func saveImage() {
-        navigateToselectFolder()
-    }
-    @objc func genratedPDf() {
-        genratedPDFFolder()
-    }
-    @objc func cameraViewTapped() {
-            openCamera()
-        }
-
-        func openCamera() {
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                let imagePickerController = UIImagePickerController()
-                imagePickerController.delegate = self
-                imagePickerController.sourceType = .camera
-                imagePickerController.mediaTypes = [String(kUTTypeImage)]
-                present(imagePickerController, animated: true, completion: nil)
-            } else {
-                print("Camera not available.")
-            }
-        }
-    func navigateToselectFolder(){
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "selectFolder") as! SelectFolder
-        self.navigationController?.pushViewController(secondViewController, animated: true)
-    }
-    func genratedPDFFolder(){
+        self.navigationController?.pushViewController(secondViewController, animated: true)    }
+    @objc func genratedPDf() {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "genratedPDF") as! GenratedPDF
-        self.navigationController?.pushViewController(secondViewController, animated: true)
-    }
-   
+        self.navigationController?.pushViewController(secondViewController, animated: true)    }
+    @objc func cameraViewTapped() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .camera
+            imagePickerController.mediaTypes = [String(kUTTypeImage)]
+            present(imagePickerController, animated: true, completion: nil)
+        } else {
+            print("Camera not available.")
+        }        }
+
+    /*@objc func openGallery() {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.mediaTypes = [String(kUTTypeImage)]
+        present(imagePickerController, animated: true, completion: nil)
+       
+        }*/
 }
 

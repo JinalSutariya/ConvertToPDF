@@ -87,7 +87,7 @@ class ConvertingToPDF: UIViewController {
             
             // Format date
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "DD MMM YYYY"
+            dateFormatter.dateFormat = "dd mm yyyy"
             let formattedDate = dateFormatter.string(from: Date())
             
             pdfDocument.write(to: pdfURL)

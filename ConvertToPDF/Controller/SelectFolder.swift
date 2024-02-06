@@ -96,7 +96,7 @@ class SelectFolder: UIViewController, UITableViewDataSource, UITableViewDelegate
                 let imageAssets = assets.objects(at: IndexSet(0..<assets.count)).filter { $0.mediaType == .image }
 
                 // Check if the album contains images
-                if imageAssets.count > 0 {
+                if imageAssets.count > 0 { 
                     // Create an ImageFolder object and add it to the imageFolders array
                     let imageFolder = ImageFolder(title: album.localizedTitle ?? "Unknown", assets: Array(imageAssets))
                     self.imageFolders.append(imageFolder)

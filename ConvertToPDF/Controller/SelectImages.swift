@@ -30,9 +30,12 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     var selectedAssets: [PHAsset] = []
     weak var delegate: SelectImagesDelegate?
     var selectedImage: UIImage?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
+        print(selectedImage)
         optionStackView.isHidden = true
         
         
@@ -41,6 +44,8 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
         collectionView.collectionViewLayout = UICollectionViewFlowLayout();
         
     }
+    
+    
     @IBAction func cameraBtnTap(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
                let imagePickerController = UIImagePickerController()
@@ -170,7 +175,6 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
             self.selectedAssets.remove(at: indexPath.item)
             collectionView.reloadData()
             
-            // Notify the delegate about the updated selection
             self.delegate?.didSelectAssets(self.selectedAssets)
         }
         
