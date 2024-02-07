@@ -84,7 +84,11 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     @IBAction func themTap(_ sender: Any) {
-        
+        if traitCollection.userInterfaceStyle == .light {
+                  overrideUserInterfaceStyle = .dark
+              } else {
+                  overrideUserInterfaceStyle = .light
+              }
     }
     
     @objc func openGallery() {
@@ -175,14 +179,16 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
         let image = yourDataArray[indexPath.item]
+        print(yourDataArray[indexPath.item])
         cell2.imgView.image = image
-
+        cell2.imgView.layer.cornerRadius = 15
         return cell2
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/2 - 10, height: collectionView.frame.size.width/2)
+        return CGSize(width: collectionView.frame.size.width/3 - 10, height: 102)
+
         
     }
     
