@@ -35,6 +35,7 @@
 		2197BD0E2B61237F001E9727 /* DarkModeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD0D2B61237F001E9727 /* DarkModeColor.swift */; };
 		2197BD102B61238B001E9727 /* LightColorFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197BD0F2B61238B001E9727 /* LightColorFile.swift */; };
 		21CEB77D2B62516F00C7E619 /* ConvertedSucessfully.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEB77C2B62516F00C7E619 /* ConvertedSucessfully.swift */; };
+		21F15B072B734F240074DB45 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F15B062B734F240074DB45 /* HomeCollectionViewCell.swift */; };
 		2C29A1B8677B9E8D2E45BD75 /* Pods_ConvertToPDFTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045CB7C5A22EFAAD702B699B /* Pods_ConvertToPDFTests.framework */; };
 		3A69803E53FEEC3D49A0F969 /* Pods_ConvertToPDF_ConvertToPDFUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770762D039070CA46B325B2C /* Pods_ConvertToPDF_ConvertToPDFUITests.framework */; };
 		668CD73C820C4E49FD807FFE /* Pods_ConvertToPDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B28D54EF5C4A1AE0109CA5 /* Pods_ConvertToPDF.framework */; };
@@ -114,6 +115,7 @@
 		219A56892B675F7A00CAB5B8 /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
 		219A568A2B675F9A00CAB5B8 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		21CEB77C2B62516F00C7E619 /* ConvertedSucessfully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertedSucessfully.swift; sourceTree = "<group>"; };
+		21F15B062B734F240074DB45 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2260891F8467BE60D15CB7BE /* Pods-ConvertToPDFTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDFTests.release.xcconfig"; path = "Target Support Files/Pods-ConvertToPDFTests/Pods-ConvertToPDFTests.release.xcconfig"; sourceTree = "<group>"; };
 		4226F7CC765CEC2910BFEC9B /* Pods-ConvertToPDFTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDFTests.debug.xcconfig"; path = "Target Support Files/Pods-ConvertToPDFTests/Pods-ConvertToPDFTests.debug.xcconfig"; sourceTree = "<group>"; };
 		659168272F8913B5FD9AB1A9 /* Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig"; path = "Target Support Files/Pods-ConvertToPDF-ConvertToPDFUITests/Pods-ConvertToPDF-ConvertToPDFUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			children = (
 				2152FC662B5F787D00CBAC32 /* ImageCountCell.swift */,
 				21914B9D2B5FB8DE00DA93A2 /* SelectImageViewCell.swift */,
+				21F15B062B734F240074DB45 /* HomeCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				21914BA42B5FD0F400DA93A2 /* SaveImagesBottomSheet.swift in Sources */,
 				2185C49A2B6A2544004254F3 /* PVSwitch.swift in Sources */,
 				21914BA92B5FE2F000DA93A2 /* ConvertingToPDF.swift in Sources */,
+				21F15B072B734F240074DB45 /* HomeCollectionViewCell.swift in Sources */,
 				2152FC392B5F772000CBAC32 /* SceneDelegate.swift in Sources */,
 				2152FC812B5F9C5400CBAC32 /* SelectFolderViewCell.swift in Sources */,
 				2197BD0E2B61237F001E9727 /* DarkModeColor.swift in Sources */,
