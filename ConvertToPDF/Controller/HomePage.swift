@@ -92,30 +92,33 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     @objc func openGallery() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.mediaTypes = [String(kUTTypeImage)]
-        present(imagePickerController, animated: true, completion: nil)
-    }
+           let imagePickerController = UIImagePickerController()
+           imagePickerController.delegate = self
+           imagePickerController.sourceType = .photoLibrary
+           imagePickerController.mediaTypes = [String(kUTTypeImage)]
+           present(imagePickerController, animated: true, completion: nil)
+       }
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-           if let selectedImage = info[.originalImage] as? UIImage {
-               // Save the captured image to the photo library
-               UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+            if let selectedImage = info[.originalImage] as? UIImage {
+                // Save the captured image to the photo library
+                UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
 
-               // Insert the new image at the beginning of yourDataArray
-               yourDataArray.insert(selectedImage, at: 0)
+                // Insert the new image at the beginning of yourDataArray
+                yourDataArray.insert(selectedImage, at: 0)
 
-               // Reload the first section of the collectionView
-               collectionView.reloadSections(IndexSet(integer: 0))
+                // Reload the first section of the collectionView
+                collectionView.reloadSections(IndexSet(integer: 0))
 
-               
-           }
-
-           picker.dismiss(animated: true, completion: nil)
-       }
-    
+                // Dismiss the image picker
+                picker.dismiss(animated: true, completion: {
+                    // Additional actions after dismissal, if needed
+                })
+            } else {
+                picker.dismiss(animated: true, completion: nil)
+            }
+        }
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             print("Error saving image: \(error.localizedDescription)")

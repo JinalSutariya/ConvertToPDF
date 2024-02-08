@@ -32,6 +32,7 @@ class GeneratedPDFTableViewCell: UITableViewCell {
             super.setSelected(selected, animated: animated)
 
         }
+    
     func configure(with pdfInfo: PDFInfo) {
             titleLbl.text = pdfInfo.title
             subTitleLbl.text = pdfInfo.subtitle
