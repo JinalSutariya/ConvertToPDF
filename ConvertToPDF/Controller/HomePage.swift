@@ -183,6 +183,7 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
         let image = yourDataArray[indexPath.item]
         print(yourDataArray[indexPath.item])
+        print(yourDataArray)
         cell2.imgView.image = image
         cell2.imgView.layer.cornerRadius = 15
         return cell2
