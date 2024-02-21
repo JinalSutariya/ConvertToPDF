@@ -30,11 +30,11 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     var selectedAssets: [PHAsset] = []
     weak var delegate: SelectImagesDelegate?
     var selectedImage: UIImage?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        
         print(selectedImage)
         optionStackView.isHidden = true
         
@@ -48,15 +48,15 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     @IBAction func cameraBtnTap(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-               let imagePickerController = UIImagePickerController()
-               imagePickerController.delegate = self
-               imagePickerController.sourceType = .camera
-               imagePickerController.mediaTypes = [String(kUTTypeImage)]
-               present(imagePickerController, animated: true, completion: nil)
-           } else {
-               // Handle the case where the camera is not available (e.g., simulator)
-               print("Camera not available.")
-           }
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .camera
+            imagePickerController.mediaTypes = [String(kUTTypeImage)]
+            present(imagePickerController, animated: true, completion: nil)
+        } else {
+            // Handle the case where the camera is not available (e.g., simulator)
+            print("Camera not available.")
+        }
         
         
     }
@@ -76,7 +76,7 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         UIView.animate(withDuration: 0.3) {
             self.optionStackView.alpha = self.isOptionViewVisible ? 2.0 : 0.0
-
+            
             self.optionStackView.isHidden = !self.isOptionViewVisible
         }
         
@@ -98,7 +98,7 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     @IBAction func galleryBtnTap(_ sender: Any) {
-      
+        
         
     }
     
@@ -141,7 +141,7 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
         // Dismiss the image picker controller
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     
     // Delegate method to handle image picker cancellation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -174,7 +174,6 @@ class SelectImages: UIViewController, UICollectionViewDataSource, UICollectionVi
             // Handle close button tap
             self.selectedAssets.remove(at: indexPath.item)
             collectionView.reloadData()
-            
             self.delegate?.didSelectAssets(self.selectedAssets)
         }
         

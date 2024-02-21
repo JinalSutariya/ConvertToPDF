@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aJX-M4-7aO">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -145,6 +146,7 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="C_PrimaryColor"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="dPZ-7K-kbA" firstAttribute="leading" secondItem="IcW-7O-iUC" secondAttribute="leading" id="43g-ht-FRn"/>
                                                     <constraint firstItem="HZV-sT-PyO" firstAttribute="top" secondItem="IcW-7O-iUC" secondAttribute="top" constant="20" symbolic="YES" id="5jJ-wb-H7R"/>
@@ -279,6 +281,7 @@
                         <outlet property="collectionView" destination="1hj-pP-MaJ" id="eov-jM-rVf"/>
                         <outlet property="collectionViewHeight" destination="3pC-cV-Nkm" id="Tch-XR-YJh"/>
                         <outlet property="fileView" destination="IcW-7O-iUC" id="rU9-ey-N0D"/>
+                        <outlet property="filemanagerBtn" destination="HZV-sT-PyO" id="hHC-tD-ak3"/>
                         <outlet property="galleryBtn" destination="lqb-tL-h7Y" id="lNm-GA-bMY"/>
                         <outlet property="galleryView" destination="A56-yi-LP0" id="dTs-3b-lQK"/>
                         <outlet property="modeChange" destination="J9X-dN-T6s" id="Val-Wv-xbY"/>
@@ -384,13 +387,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0Iv-e7-kh8">
                                                             <rect key="frame" x="88" y="13.666666666666671" width="230" height="45"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smS-WZ-BvQ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Camera" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smS-WZ-BvQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="24"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1768 Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOW-L6-OAw">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1768 Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOW-L6-OAw">
                                                                     <rect key="frame" x="0.0" y="28" width="69.666666666666671" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                     <color key="textColor" name="FColor_1"/>
@@ -1432,7 +1435,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system"/>
                                                 <connections>
-                                                    <action selector="backTap:" destination="hWZ-0F-y5Q" eventType="touchUpInside" id="PrF-6R-Sy6"/>
+                                                    <action selector="backTap:" destination="hWZ-0F-y5Q" eventType="touchUpInside" id="s2x-RY-lA0"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Genrated PDF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0F-rn-WpX">
@@ -1735,6 +1738,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="downloadTap:" destination="SLR-D7-dCW" eventType="touchUpInside" id="04l-Ug-Dgk"/>
+                                                    <action selector="shareBtn:" destination="gQe-mL-7hr" eventType="touchUpInside" id="9Ju-Ji-Jxa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-RR-FX6">

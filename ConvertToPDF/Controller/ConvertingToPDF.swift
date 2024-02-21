@@ -23,6 +23,7 @@ class ConvertingToPDF: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         print("Number of selected images: \(selectedAssets.count)")
         circleView.layer.cornerRadius = circleView.frame.height / 2
         
@@ -47,7 +48,9 @@ class ConvertingToPDF: UIViewController {
             }
         }
     }
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     @IBAction func closeTap(_ sender: Any) {
         self.dismiss(animated: true)
         
@@ -108,7 +111,4 @@ class ConvertingToPDF: UIViewController {
         print("PDF downloaded at: \(pdfURL.path)")
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }

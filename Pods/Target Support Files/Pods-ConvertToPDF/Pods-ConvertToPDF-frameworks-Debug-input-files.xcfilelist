@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-ConvertToPDF/Pods-ConvertToPDF-frameworks.sh
-${BUILT_PRODUCTS_DIR}/PVSwitch/PVSwitch.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/PSPDFKit/Core/PSPDFKit.framework/PSPDFKit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/PSPDFKit/Core/PSPDFKitUI.framework/PSPDFKitUI

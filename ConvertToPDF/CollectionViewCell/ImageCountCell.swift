@@ -14,3 +14,4 @@ class ImageCountCell: UICollectionViewCell {
     @IBOutlet weak var ticImgView: UIImageView!
     @IBOutlet weak var selectImgView: UIImageView!
 }
+ 

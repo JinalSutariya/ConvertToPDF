@@ -18,7 +18,7 @@ class Menu:  UIViewController, UIViewControllerTransitioningDelegate {
     var amount = ""
     weak var delegate: MenuDelegate?
     var selectedIndex: Int = 0
-
+    
     lazy var lightBackgroundView: UIView = {
         let view = UIView()
         
@@ -55,18 +55,21 @@ class Menu:  UIViewController, UIViewControllerTransitioningDelegate {
     @objc func handleTapOutside() {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func shareBtn(_ sender: Any) {
+        
+    }
     @IBAction func renameTap(_ sender: Any) {
     }
     @IBAction func deleteTap(_ sender: Any) {
         delegate?.deletePDF(at: selectedIndex)
-            grabberView.isHidden = true
-            dismiss(animated: true)
+        grabberView.isHidden = true
+        dismiss(animated: true)
         
     }
     func setupView() {
         view.addSubview(lightBackgroundView)
         view.sendSubviewToBack(lightBackgroundView)
     }
-   
+    
 }
 

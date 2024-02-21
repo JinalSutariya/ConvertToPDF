@@ -9,8 +9,8 @@ import UIKit
 import Foundation
 import Photos
 class SaveImagesBottomSheet: UIViewController, UITextFieldDelegate {
-   
- 
+    
+    
     @IBOutlet weak var bottomView: UIView!
     
     @IBOutlet weak var switchPass: UISwitch!
@@ -18,11 +18,11 @@ class SaveImagesBottomSheet: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fileNameTxt: UITextField!
     @IBOutlet weak var compressImgSlider: CustomSlider!
     var selectedAssets: [PHAsset] = []
-
+    
     lazy var lightBackgroundView: UIView = {
         let view = UIView()
         
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.7) 
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         view.frame = self.view.bounds
         return view
     }()
@@ -35,12 +35,12 @@ class SaveImagesBottomSheet: UIViewController, UITextFieldDelegate {
         setupView()
         fileNameTxt.delegate = self
         passTxt.delegate = self
-
+        
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-           textField.resignFirstResponder()
-           return true
-       }
+        textField.resignFirstResponder()
+        return true
+    }
     @IBAction func donebtnTap(_ sender: Any) {
         
         self.dismiss(animated: true)
@@ -48,26 +48,26 @@ class SaveImagesBottomSheet: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func okTap(_ sender: Any) {
-       
+        
         self.dismiss(animated: true)
-
-                // Pass selected assets to ConvertingToPDF
-                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "convertToPDF") as? ConvertingToPDF {
-                    controller.modalPresentationStyle = .fullScreen
-                    controller.modalTransitionStyle = .crossDissolve
-                    controller.selectedAssets = selectedAssets
-                    controller.fileName = fileNameTxt.text
-                    self.presentingViewController?.present(controller, animated: true, completion: nil)
-                }
-       
+        
+        // Pass selected assets to ConvertingToPDF
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "convertToPDF") as? ConvertingToPDF {
+            controller.modalPresentationStyle = .fullScreen
+            controller.modalTransitionStyle = .crossDissolve
+            controller.selectedAssets = selectedAssets
+            controller.fileName = fileNameTxt.text
+            self.presentingViewController?.present(controller, animated: true, completion: nil)
+        }
+        
     }
     
     func setupView() {
         
         view.addSubview(lightBackgroundView)
-                view.sendSubviewToBack(lightBackgroundView)
+        view.sendSubviewToBack(lightBackgroundView)
     }
-   
+    
 }
 
 class CustomSlider: UISlider {

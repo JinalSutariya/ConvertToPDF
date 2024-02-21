@@ -17,9 +17,10 @@ class GenratedPDF: UIViewController, GeneratedPDFTableViewCellDelegate, MenuDele
     
     var isSortingViewVisible = false
     var generatedPDFURL: URL?
-    var pdfFiles: [URL] = []
+    var pdfFiles: [URL] = [ ]
     var pdfInfo: [PDFInfo] = []
-
+    var filter: CIFilter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +32,7 @@ class GenratedPDF: UIViewController, GeneratedPDFTableViewCellDelegate, MenuDele
         SortingView.layer.shadowOffset = CGSize.zero
         SortingView.layer.shadowRadius = 8
         
+        
         tableView.delegate = self
         tableView.dataSource = self
         updateTableViewVisibility()
@@ -38,31 +40,32 @@ class GenratedPDF: UIViewController, GeneratedPDFTableViewCellDelegate, MenuDele
     
     func deletePDF(at index: Int) {
         let pdfURL = pdfFiles[index]
-
+        
         do {
             try FileManager.default.removeItem(at: pdfURL)
             pdfFiles.remove(at: index)
             tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
             updateTableViewVisibility()
         } catch {
-            print("Error deleting PDF file: \(error.localizedDescription)")
+            print("Error delete PDF file: \(error.localizedDescription)")
         }
     }
     func getAllPDFFilesInDocumentDirectory() -> [PDFInfo] {
-            do {
-                let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-                let files = try FileManager.default.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil, options: [])
-
-                // Create PDFInfo instances from URLs
-                let pdfFiles = files.map { PDFInfo(title: $0.lastPathComponent, subtitle: "", size: "") }
-
-                return pdfFiles
-            } catch {
-                print("Error getting PDF files: \(error.localizedDescription)")
-                return []
-            }
+        do {
+            let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let files = try FileManager.default.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil, options: [])
+            
+            // Create PDFInfo instances from URLs
+            let pdfFiles = files.map { PDFInfo(title: $0.lastPathComponent, subtitle: "", size: "") }
+        
+            
+            return pdfFiles
+        } catch {
+            print("Error getting PDF files: \(error.localizedDescription)")
+            return []
         }
-
+    }
+    
     @IBAction func sortTap(_ sender: Any) {
         isSortingViewVisible.toggle()
         SortingView.isHidden = !isSortingViewVisible
@@ -72,7 +75,7 @@ class GenratedPDF: UIViewController, GeneratedPDFTableViewCellDelegate, MenuDele
         
     }
     func reloadData() {
-        tableView.reloadData()
+    tableView.reloadData()
         updateTableViewVisibility()
     }
     func updateTableViewVisibility() {
@@ -138,6 +141,10 @@ extension GenratedPDF: UITableViewDelegate, UITableViewDataSource {
             infoViewController.selectedIndex = indexPath.row
             present(infoViewController, animated: true)
         }
+    }
+    
+    func didTapMore(inCell cell: GeneratedPDFTableViewCell){
+        
     }
 }
 

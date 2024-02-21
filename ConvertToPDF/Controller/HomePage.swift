@@ -23,16 +23,20 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var cameraBtn: UIButton!
     @IBOutlet weak var pdfBtn: UIButton!
     @IBOutlet weak var modeChange: UIButton!
+    @IBOutlet weak var filemanagerBtn: UIButton!
     var yourDataArray: [UIImage] = []
-
     
+    var groupedImages: [Date: [UIImage]] = [:]
+    var sectionTitles: [Date] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchImagesFromGallery()
+        collectionView.register(DateSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
 
         collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -58,6 +62,7 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         let fileTapGesture = UITapGestureRecognizer(target: self, action: #selector(openGallery))
         fileView.addGestureRecognizer(fileTapGesture)
+        filemanagerBtn.addGestureRecognizer(fileTapGesture)
     }
     
     override func viewDidLayoutSubviews() {
@@ -85,40 +90,40 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     @IBAction func themTap(_ sender: Any) {
         if traitCollection.userInterfaceStyle == .light {
-                  overrideUserInterfaceStyle = .dark
-              } else {
-                  overrideUserInterfaceStyle = .light
-              }
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
     }
     
     @objc func openGallery() {
-           let imagePickerController = UIImagePickerController()
-           imagePickerController.delegate = self
-           imagePickerController.sourceType = .photoLibrary
-           imagePickerController.mediaTypes = [String(kUTTypeImage)]
-           present(imagePickerController, animated: true, completion: nil)
-       }
-
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.mediaTypes = [String(kUTTypeImage)]
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let selectedImage = info[.originalImage] as? UIImage {
-                // Save the captured image to the photo library
-                UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-
-                // Insert the new image at the beginning of yourDataArray
-                yourDataArray.insert(selectedImage, at: 0)
-
-                // Reload the first section of the collectionView
-                collectionView.reloadSections(IndexSet(integer: 0))
-
-                // Dismiss the image picker
-                picker.dismiss(animated: true, completion: {
-                    // Additional actions after dismissal, if needed
-                })
-            } else {
-                picker.dismiss(animated: true, completion: nil)
-            }
+        if let selectedImage = info[.originalImage] as? UIImage {
+            // Save the captured image to the photo library
+            UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+            
+            // Insert the new image at the beginning of yourDataArray
+            yourDataArray.insert(selectedImage, at: 0)
+            
+            // Reload the first section of the collectionView
+            collectionView.reloadSections(IndexSet(integer: 0))
+            
+            // Dismiss the image picker
+            picker.dismiss(animated: true, completion: {
+                // Additional actions after dismissal, if needed
+            })
+        } else {
+            picker.dismiss(animated: true, completion: nil)
         }
+    }
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             print("Error saving image: \(error.localizedDescription)")
@@ -127,7 +132,7 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         }
     }
     
-    @objc func saveImage() {
+    @objc func saveImage() { 
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "selectFolder") as! SelectFolder
         self.navigationController?.pushViewController(secondViewController, animated: true)    }
     
@@ -149,6 +154,7 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     func fetchImagesFromGallery() {
         let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)] // Sort by creation date in descending order
         let assets = PHAsset.fetchAssets(with: .image, options: fetchOptions)
 
         for index in 0..<assets.count {
@@ -158,41 +164,92 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
 
             PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: requestOptions) { (image, _) in
                 if let image = image {
-                    self.yourDataArray.append(image)
+                    let creationDate = asset.creationDate ?? Date()
+
+                    if var imagesForDate = self.groupedImages[creationDate] {
+                        imagesForDate.append(image)
+                        self.groupedImages[creationDate] = imagesForDate
+                    } else {
+                        self.groupedImages[creationDate] = [image]
+                    }
                 }
             }
         }
 
-        // Reverse the order of yourDataArray
-        yourDataArray.reverse()
+        // Extract unique dates and sort them in descending order
+        self.sectionTitles = Array(Set(self.groupedImages.keys)).sorted(by: { $0 > $1 })
 
         collectionView.reloadData()
     }
+
+    
+    
 }
 
 extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+          return sectionTitles.count
+      }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! DateSectionHeader
+        let date = sectionTitles[indexPath.section]
+        headerView.titleLabel.text = formatDate(date)
+        return headerView
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-       return yourDataArray.count
-
+        return yourDataArray.count
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
+            let image = yourDataArray[indexPath.item]
+            print("Cell created for index \(indexPath.item)")
+            cell2.imgView.image = image
+            cell2.imgView.layer.cornerRadius = 15
+            return cell2
         
-        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
-        let image = yourDataArray[indexPath.item]
-        print(yourDataArray[indexPath.row])
-        cell2.imgView.image = image
-        cell2.imgView.layer.cornerRadius = 15
-        return cell2
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width/3 - 10, height: 102)
-
+        
         
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+           return CGSize(width: collectionView.bounds.size.width, height: 30)
+       }
+}
+class DateSectionHeader: UICollectionReusableView {
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .black
+        return label
+    }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+        ])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+extension HomePage {
+    func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        return dateFormatter.string(from: date)
+    }
 }

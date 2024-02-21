@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+   
 class SelectFolderViewCell: UITableViewCell {
 
     @IBOutlet weak var tapRight: UIButton!
