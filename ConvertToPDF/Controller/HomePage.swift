@@ -33,7 +33,6 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         super.viewDidLoad()
         
         fetchImagesFromGallery()
-        collectionView.register(DateSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
 
         collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
@@ -153,77 +152,53 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     func fetchImagesFromGallery() {
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)] // Sort by creation date in descending order
-        let assets = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            let fetchOptions = PHFetchOptions()
+            let assets = PHAsset.fetchAssets(with: .image, options: fetchOptions)
 
-        for index in 0..<assets.count {
-            let asset = assets[index]
-            let requestOptions = PHImageRequestOptions()
-            requestOptions.isSynchronous = true
+            for index in 0..<assets.count {
+                let asset = assets[index]
+                let requestOptions = PHImageRequestOptions()
+                requestOptions.isSynchronous = true
 
-            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: requestOptions) { (image, _) in
-                if let image = image {
-                    let creationDate = asset.creationDate ?? Date()
-
-                    if var imagesForDate = self.groupedImages[creationDate] {
-                        imagesForDate.append(image)
-                        self.groupedImages[creationDate] = imagesForDate
-                    } else {
-                        self.groupedImages[creationDate] = [image]
+                PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: requestOptions) { (image, _) in
+                    if let image = image {
+                        self.yourDataArray.append(image)
                     }
                 }
             }
+
+            // Reverse the order of yourDataArray
+            yourDataArray.reverse()
+
+            collectionView.reloadData()
         }
-
-        // Extract unique dates and sort them in descending order
-        self.sectionTitles = Array(Set(self.groupedImages.keys)).sorted(by: { $0 > $1 })
-
-        collectionView.reloadData()
     }
 
-    
-    
-}
+    extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            
+            
+           return yourDataArray.count
 
-extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-          return sectionTitles.count
-      }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! DateSectionHeader
-        let date = sectionTitles[indexPath.section]
-        headerView.titleLabel.text = formatDate(date)
-        return headerView
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        }
         
-        
-        return yourDataArray.count
-        
-    }
-    
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            
             let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
             let image = yourDataArray[indexPath.item]
-            print("Cell created for index \(indexPath.item)")
             cell2.imgView.image = image
             cell2.imgView.layer.cornerRadius = 15
             return cell2
+        }
+        
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: collectionView.frame.size.width/3 - 10, height: 102)
+
+            
+        }
         
     }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/3 - 10, height: 102)
-        
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-           return CGSize(width: collectionView.bounds.size.width, height: 30)
-       }
-}
 class DateSectionHeader: UICollectionReusableView {
     let titleLabel: UILabel = {
         let label = UILabel()
