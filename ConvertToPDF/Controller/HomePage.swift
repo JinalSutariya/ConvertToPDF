@@ -28,11 +28,12 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     var groupedImages: [Date: [UIImage]] = [:]
     var sectionTitles: [Date] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchImagesFromGallery()
+        collectionView.register(DateSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DateSectionHeader")
 
         collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
@@ -131,7 +132,7 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         }
     }
     
-    @objc func saveImage() { 
+    @objc func saveImage() {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "selectFolder") as! SelectFolder
         self.navigationController?.pushViewController(secondViewController, animated: true)    }
     
@@ -148,79 +149,80 @@ class HomePage: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             present(imagePickerController, animated: true, completion: nil)
         } else {
             print("Camera not available.")
-        }        }
+        }
+    }
     
     
     func fetchImagesFromGallery() {
-            let fetchOptions = PHFetchOptions()
-            let assets = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-
-            for index in 0..<assets.count {
-                let asset = assets[index]
-                let requestOptions = PHImageRequestOptions()
-                requestOptions.isSynchronous = true
-
-                PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: requestOptions) { (image, _) in
-                    if let image = image {
-                        self.yourDataArray.append(image)
+        let fetchOptions = PHFetchOptions()
+        let assets = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        
+        for index in 0..<assets.count {
+            let asset = assets[index]
+            let requestOptions = PHImageRequestOptions()
+            requestOptions.isSynchronous = true
+            
+            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: requestOptions) { (image, info) in
+                if let image = image, let creationDate = asset.creationDate {
+                    // Check if the month is already a key in the dictionary
+                    if var imagesForMonth = self.groupedImages[creationDate.startOfMonth()] {
+                        imagesForMonth.append(image)
+                        self.groupedImages[creationDate.startOfMonth()] = imagesForMonth
+                    } else {
+                        // If the month is not a key, create a new entry
+                        self.groupedImages[creationDate.startOfMonth()] = [image]
                     }
                 }
             }
-
-            // Reverse the order of yourDataArray
-            yourDataArray.reverse()
-
-            collectionView.reloadData()
-        }
-    }
-
-    extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            
-            
-           return yourDataArray.count
-
         }
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            
-            let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
-            let image = yourDataArray[indexPath.item]
-            cell2.imgView.image = image
-            cell2.imgView.layer.cornerRadius = 15
-            return cell2
-        }
+        // Get the unique months and sort them
+        let uniqueMonths = Set(self.groupedImages.keys)
+        self.sectionTitles = Array(uniqueMonths).sorted(by: { $0 < $1 })
         
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: collectionView.frame.size.width/3 - 10, height: 102)
-
-            
-        }
-        
-    }
-class DateSectionHeader: UICollectionReusableView {
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .black
-        return label
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        collectionView.reloadData()
     }
 }
+extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+        func numberOfSections(in collectionView: UICollectionView) -> Int {
+            return sectionTitles.count
+        }
+
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            let month = sectionTitles[section]
+            return groupedImages[month]?.count ?? 0
+        }
+
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
+            let month = sectionTitles[indexPath.section]
+            if let imagesForMonth = groupedImages[month] {
+                let image = imagesForMonth[indexPath.item]
+                cell2.imgView.image = image
+                cell2.imgView.layer.cornerRadius = 15
+            }
+            return cell2
+        }
+
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            return CGSize(width: collectionView.frame.size.width, height: 44)
+        }
+
+        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DateSectionHeader", for: indexPath) as! DateSectionHeader
+            let month = sectionTitles[indexPath.section]
+            headerView.titleLabel.text = formatDate(month)
+            return headerView
+        }
+    }
+
+    extension Date {
+        func startOfMonth() -> Date {
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month], from: self)
+            return calendar.date(from: components)!
+        }
+    }
 extension HomePage {
     func formatDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()

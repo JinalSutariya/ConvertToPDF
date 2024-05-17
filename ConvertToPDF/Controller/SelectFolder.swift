@@ -24,7 +24,8 @@ class SelectFolder: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         // Set the data source and delegate for the table view
         tableView.dataSource = self
-        tableView.delegate = self    }
+        tableView.delegate = self
+    }
     
     
     
